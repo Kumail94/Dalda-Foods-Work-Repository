@@ -1,0 +1,628 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DFLDBModelStoreContainer" CdmEntityContainer="WMSDBEntities">
+    <EntitySetMapping Name="ChildForms">
+      <EntityTypeMapping TypeName="DFLDBModel.ChildForm">
+        <MappingFragment StoreEntitySet="ChildForm">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ChildFormName" ColumnName="ChildFormName" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Components">
+      <EntityTypeMapping TypeName="DFLDBModel.Component">
+        <MappingFragment StoreEntitySet="Component">
+          <ScalarProperty Name="Component_Id" ColumnName="Component Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Short_Name" ColumnName="Short Name" />
+          <ScalarProperty Name="Heading" ColumnName="Heading" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Form_List">
+      <EntityTypeMapping TypeName="DFLDBModel.Form_List">
+        <MappingFragment StoreEntitySet="Form_List">
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="SubProjectID" ColumnName="SubProjectID" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="FormID" ColumnName="FormID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Header" ColumnName="Header" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="Path" ColumnName="Path" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Form_Value">
+      <EntityTypeMapping TypeName="DFLDBModel.Form_Value">
+        <MappingFragment StoreEntitySet="Form_Value">
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="SubProjectID" ColumnName="SubProjectID" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="FormID" ColumnName="FormID" />
+          <ScalarProperty Name="ComponentID" ColumnName="ComponentID" />
+          <ScalarProperty Name="HierarchyNo" ColumnName="HierarchyNo" />
+          <ScalarProperty Name="SelectionID" ColumnName="SelectionID" />
+          <ScalarProperty Name="Parameter_Desc" ColumnName="Parameter_Desc" />
+          <ScalarProperty Name="Label" ColumnName="Label" />
+          <ScalarProperty Name="Stored_Procedure" ColumnName="Stored_Procedure" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GRReports">
+      <EntityTypeMapping TypeName="DFLDBModel.GRReport">
+        <MappingFragment StoreEntitySet="GRReport">
+          <ScalarProperty Name="ReportId" ColumnName="ReportId" />
+          <ScalarProperty Name="WareHouse" ColumnName="WareHouse" />
+          <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+          <ScalarProperty Name="GRIRNo" ColumnName="GRIRNo" />
+          <ScalarProperty Name="TransferNoteNo" ColumnName="TransferNoteNo" />
+          <ScalarProperty Name="TypeOfTransfer" ColumnName="TypeOfTransfer" />
+          <ScalarProperty Name="Rejection" ColumnName="Rejection" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ParentForms">
+      <EntityTypeMapping TypeName="DFLDBModel.ParentForm">
+        <MappingFragment StoreEntitySet="ParentForm">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ParentFormName" ColumnName="ParentFormName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reports">
+      <EntityTypeMapping TypeName="DFLDBModel.Report">
+        <MappingFragment StoreEntitySet="Report">
+          <ScalarProperty Name="Report_Id" ColumnName="Report Id" />
+          <ScalarProperty Name="Report_Description" ColumnName="Report Description" />
+          <ScalarProperty Name="Parent_Id" ColumnName="Parent Id" />
+          <ScalarProperty Name="Report_Path" ColumnName="Report Path" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Report_Parameters">
+      <EntityTypeMapping TypeName="DFLDBModel.Report_Parameter">
+        <MappingFragment StoreEntitySet="Report Parameter">
+          <ScalarProperty Name="Report_Id" ColumnName="Report Id" />
+          <ScalarProperty Name="Report_Parameter1" ColumnName="Report Parameter" />
+          <ScalarProperty Name="Parameter_Type" ColumnName="Parameter Type" />
+          <ScalarProperty Name="Component" ColumnName="Component" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="DFLDBModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="DFLDBModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="BranchID" ColumnName="BranchID" />
+          <ScalarProperty Name="User_Id" ColumnName="User Id" />
+          <ScalarProperty Name="First_Name" ColumnName="First Name" />
+          <ScalarProperty Name="Last_Name" ColumnName="Last Name" />
+          <ScalarProperty Name="User_Name" ColumnName="User Name" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Contact_Number" ColumnName="Contact Number" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserLogs">
+      <EntityTypeMapping TypeName="DFLDBModel.UserLog">
+        <MappingFragment StoreEntitySet="UserLogs">
+          <ScalarProperty Name="Log_Id" ColumnName="Log Id" />
+          <ScalarProperty Name="User_Id" ColumnName="User Id" />
+          <ScalarProperty Name="User_name" ColumnName="User name" />
+          <ScalarProperty Name="Login_Time" ColumnName="Login Time" />
+          <ScalarProperty Name="Logout_Time" ColumnName="Logout Time" />
+          <ScalarProperty Name="Host_Name" ColumnName="Host Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="DFLDBModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="DFLDBModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="DFLDBModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_GenericFormValue" FunctionName="DFLDBModel.Store.sp_GenericFormValue">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DFLDBModel.sp_GenericFormValue_Result">
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="SubProjectID" ColumnName="SubProjectID" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="FormID" ColumnName="FormID" />
+          <ScalarProperty Name="ComponentID" ColumnName="ComponentID" />
+          <ScalarProperty Name="HierarchyNo" ColumnName="HierarchyNo" />
+          <ScalarProperty Name="SelectionID" ColumnName="SelectionID" />
+          <ScalarProperty Name="Parameter_Desc" ColumnName="Parameter_Desc" />
+          <ScalarProperty Name="Label" ColumnName="Label" />
+          <ScalarProperty Name="Stored_Procedure" ColumnName="Stored_Procedure" />
+          <ScalarProperty Name="CompDesc" ColumnName="CompDesc" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GoodsReciept" FunctionName="DFLDBModel.Store.SP_GoodsReciept">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DFLDBModel.SP_GoodsReciept_Result">
+          <ScalarProperty Name="ReportId" ColumnName="ReportId" />
+          <ScalarProperty Name="WareHouse" ColumnName="WareHouse" />
+          <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+          <ScalarProperty Name="GRIRNo" ColumnName="GRIRNo" />
+          <ScalarProperty Name="TransferNoteNo" ColumnName="TransferNoteNo" />
+          <ScalarProperty Name="TypeOfTransfer" ColumnName="TypeOfTransfer" />
+          <ScalarProperty Name="Rejection" ColumnName="Rejection" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="DFLDBModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DFLDBModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="DFLDBModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DFLDBModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="DFLDBModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="Sp_TreeHirerchy" FunctionName="DFLDBModel.Store.Sp_TreeHirerchy">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DFLDBModel.Sp_TreeHirerchy_Result">
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="ParentName" ColumnName="ParentName" />
+          <ScalarProperty Name="FormID" ColumnName="FormID" />
+          <ScalarProperty Name="FormName" ColumnName="FormName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="DFLDBModel.Store.sp_upgraddiagrams" />
+    <EntitySetMapping Name="table_MainGate">
+      <EntityTypeMapping TypeName="DFLDBModel.table_MainGate">
+        <MappingFragment StoreEntitySet="table_MainGate">
+          <ScalarProperty Name="ShipmentRemarks2" ColumnName="ShipmentRemarks2" />
+          <ScalarProperty Name="ShipmentRemarks1" ColumnName="ShipmentRemarks1" />
+          <ScalarProperty Name="ShipmentDocumentDate" ColumnName="ShipmentDocumentDate" />
+          <ScalarProperty Name="ShipmentDcoumentNo" ColumnName="ShipmentDcoumentNo" />
+          <ScalarProperty Name="UOM" ColumnName="UOM" />
+          <ScalarProperty Name="PhysicalQuantity" ColumnName="PhysicalQuantity" />
+          <ScalarProperty Name="Product" ColumnName="Product" />
+          <ScalarProperty Name="PartyDescription" ColumnName="PartyDescription" />
+          <ScalarProperty Name="PODate" ColumnName="PODate" />
+          <ScalarProperty Name="PartyType" ColumnName="PartyType" />
+          <ScalarProperty Name="DocDate" ColumnName="DocDate" />
+          <ScalarProperty Name="Depot" ColumnName="Depot" />
+          <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+          <ScalarProperty Name="VehicleEntryFor" ColumnName="VehicleEntryFor" />
+          <ScalarProperty Name="Dispatch_Others" ColumnName="Dispatch/Others" />
+          <ScalarProperty Name="DocNo" ColumnName="DocNo" />
+          <ScalarProperty Name="PONumber" ColumnName="PONumber" />
+          <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+          <ScalarProperty Name="TranID" ColumnName="TranID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblProducts">
+      <EntityTypeMapping TypeName="DFLDBModel.tblProduct">
+        <MappingFragment StoreEntitySet="tblProduct">
+          <ScalarProperty Name="AverageRate" ColumnName="AverageRate" />
+          <ScalarProperty Name="IsBackDateDispatchAllowed" ColumnName="IsBackDateDispatchAllowed" />
+          <ScalarProperty Name="ProductNature" ColumnName="ProductNature" />
+          <ScalarProperty Name="WeightTolerance_Max" ColumnName="WeightTolerance_Max" />
+          <ScalarProperty Name="WeightTolerance_Min" ColumnName="WeightTolerance_Min" />
+          <ScalarProperty Name="StorageTankID" ColumnName="StorageTankID" />
+          <ScalarProperty Name="IsAdminUpdated" ColumnName="IsAdminUpdated" />
+          <ScalarProperty Name="IsERPItem" ColumnName="IsERPItem" />
+          <ScalarProperty Name="IsIncludeInDispatchPlan" ColumnName="IsIncludeInDispatchPlan" />
+          <ScalarProperty Name="IsIncludeInDBR" ColumnName="IsIncludeInDBR" />
+          <ScalarProperty Name="DepotWeekCover" ColumnName="DepotWeekCover" />
+          <ScalarProperty Name="NationWeekCover" ColumnName="NationWeekCover" />
+          <ScalarProperty Name="IsCP" ColumnName="IsCP" />
+          <ScalarProperty Name="IsLoose" ColumnName="IsLoose" />
+          <ScalarProperty Name="IsFinish" ColumnName="IsFinish" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ExpiryAgeMonths" ColumnName="ExpiryAgeMonths" />
+          <ScalarProperty Name="BoxPerCarton" ColumnName="BoxPerCarton" />
+          <ScalarProperty Name="PcsPerBox" ColumnName="PcsPerBox" />
+          <ScalarProperty Name="IsTaxable" ColumnName="IsTaxable" />
+          <ScalarProperty Name="TaxCategoryID" ColumnName="TaxCategoryID" />
+          <ScalarProperty Name="Height" ColumnName="Height" />
+          <ScalarProperty Name="Width" ColumnName="Width" />
+          <ScalarProperty Name="Length" ColumnName="Length" />
+          <ScalarProperty Name="UOMID" ColumnName="UOMID" />
+          <ScalarProperty Name="GrossWeight" ColumnName="GrossWeight" />
+          <ScalarProperty Name="NetWeight" ColumnName="NetWeight" />
+          <ScalarProperty Name="ExtProdGroupID" ColumnName="ExtProdGroupID" />
+          <ScalarProperty Name="ProductNatureID" ColumnName="ProductNatureID" />
+          <ScalarProperty Name="ProductTypeID" ColumnName="ProductTypeID" />
+          <ScalarProperty Name="ProductCategoryID" ColumnName="ProductCategoryID" />
+          <ScalarProperty Name="ProductPackagingID" ColumnName="ProductPackagingID" />
+          <ScalarProperty Name="ProductBrandID" ColumnName="ProductBrandID" />
+          <ScalarProperty Name="ProductClassID" ColumnName="ProductClassID" />
+          <ScalarProperty Name="BusinessUnitID" ColumnName="BusinessUnitID" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="ProductTitle" ColumnName="ProductTitle" />
+          <ScalarProperty Name="ProductRefNo" ColumnName="ProductRefNo" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblProductTypes">
+      <EntityTypeMapping TypeName="DFLDBModel.tblProductType">
+        <MappingFragment StoreEntitySet="tblProductType">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="ProductTypeTitle" ColumnName="ProductTypeTitle" />
+          <ScalarProperty Name="ProductTypeRefNo" ColumnName="ProductTypeRefNo" />
+          <ScalarProperty Name="ProductTypeID" ColumnName="ProductTypeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblUOMs">
+      <EntityTypeMapping TypeName="DFLDBModel.tblUOM">
+        <MappingFragment StoreEntitySet="tblUOM">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="UOMTitle" ColumnName="UOMTitle" />
+          <ScalarProperty Name="UOMRefNo" ColumnName="UOMRefNo" />
+          <ScalarProperty Name="UOMID" ColumnName="UOMID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblVehicles">
+      <EntityTypeMapping TypeName="DFLDBModel.tblVehicle">
+        <MappingFragment StoreEntitySet="tblVehicle">
+          <ScalarProperty Name="VehicleNo" ColumnName="VehicleNo" />
+          <ScalarProperty Name="TranType" ColumnName="TranType" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="MaximumLoadInTon" ColumnName="MaximumLoadInTon" />
+          <ScalarProperty Name="MinumumLoadInTon" ColumnName="MinumumLoadInTon" />
+          <ScalarProperty Name="PreferenceNo" ColumnName="PreferenceNo" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="MfgYear" ColumnName="MfgYear" />
+          <ScalarProperty Name="Axle" ColumnName="Axle" />
+          <ScalarProperty Name="Wheels" ColumnName="Wheels" />
+          <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+          <ScalarProperty Name="Height" ColumnName="Height" />
+          <ScalarProperty Name="Width" ColumnName="Width" />
+          <ScalarProperty Name="Length" ColumnName="Length" />
+          <ScalarProperty Name="TransporterID" ColumnName="TransporterID" />
+          <ScalarProperty Name="VehicleCategoryID" ColumnName="VehicleCategoryID" />
+          <ScalarProperty Name="MinimumWeightForPayable" ColumnName="MinimumWeightForPayable" />
+          <ScalarProperty Name="VehicleTypeID" ColumnName="VehicleTypeID" />
+          <ScalarProperty Name="VehicleNatureID" ColumnName="VehicleNatureID" />
+          <ScalarProperty Name="BranchID" ColumnName="BranchID" />
+          <ScalarProperty Name="VehicleTitle" ColumnName="VehicleTitle" />
+          <ScalarProperty Name="OldCode" ColumnName="OldCode" />
+          <ScalarProperty Name="VehicleRefNo" ColumnName="VehicleRefNo" />
+          <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblVehicleEntryDetailProducts">
+      <EntityTypeMapping TypeName="DFLDBModel.tblVehicleEntryDetailProduct">
+        <MappingFragment StoreEntitySet="tblVehicleEntryDetailProduct">
+          <ScalarProperty Name="UOMID" ColumnName="UOMID" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="TranID" ColumnName="TranID" />
+          <ScalarProperty Name="TranDtlID" ColumnName="TranDtlID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblVehicleNatures">
+      <EntityTypeMapping TypeName="DFLDBModel.tblVehicleNature">
+        <MappingFragment StoreEntitySet="tblVehicleNature">
+          <ScalarProperty Name="IsQCRequired" ColumnName="IsQCRequired" />
+          <ScalarProperty Name="VehicleNatureType" ColumnName="VehicleNatureType" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="VehicleNatureTitle" ColumnName="VehicleNatureTitle" />
+          <ScalarProperty Name="VehicleNatureOldRefNo" ColumnName="VehicleNatureOldRefNo" />
+          <ScalarProperty Name="VehicleNatureRefNo" ColumnName="VehicleNatureRefNo" />
+          <ScalarProperty Name="VehicleNatureID" ColumnName="VehicleNatureID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="VW_SHIPMENT" FunctionName="DFLDBModel.Store.VW_SHIPMENT">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DFLDBModel.VW_SHIPMENT_Result">
+          <ScalarProperty Name="DOC_DATE" ColumnName="DOC_DATE" />
+          <ScalarProperty Name="LOADING_UNLOADING" ColumnName="LOADING_UNLOADING" />
+          <ScalarProperty Name="PURCHASE_DOC_NO" ColumnName="PURCHASE_DOC_NO" />
+          <ScalarProperty Name="SHIPMENT_DOC_NO" ColumnName="SHIPMENT_DOC_NO" />
+          <ScalarProperty Name="VEHICLE_NO" ColumnName="VEHICLE_NO" />
+          <ScalarProperty Name="DRIVER_NAME" ColumnName="DRIVER_NAME" />
+          <ScalarProperty Name="DRIVER_CNIC" ColumnName="DRIVER_CNIC" />
+          <ScalarProperty Name="CHECK_IN__MAIN_GATE_IN_DATE" ColumnName="CHECK_IN__MAIN_GATE_IN_DATE" />
+          <ScalarProperty Name="CHECK_IN__MAIN_GATE_IN_TIME" ColumnName="CHECK_IN__MAIN_GATE_IN_TIME" />
+          <ScalarProperty Name="CHECK_IN__MAIN_GATE_IN" ColumnName="CHECK_IN__MAIN_GATE_IN" />
+          <ScalarProperty Name="LOADING_UNLOADING_START_DATE" ColumnName="LOADING_UNLOADING_START_DATE" />
+          <ScalarProperty Name="LOADING_UNLOADING_START_TIME" ColumnName="LOADING_UNLOADING_START_TIME" />
+          <ScalarProperty Name="LOADING_UNLOADING_START" ColumnName="LOADING_UNLOADING_START" />
+          <ScalarProperty Name="LOADING_UNLOADING_END_DATE" ColumnName="LOADING_UNLOADING_END_DATE" />
+          <ScalarProperty Name="LOADING_UNLOADING_END_TIME" ColumnName="LOADING_UNLOADING_END_TIME" />
+          <ScalarProperty Name="LOADING_UNLOADING_END" ColumnName="LOADING_UNLOADING_END" />
+          <ScalarProperty Name="SHIPMENT_COMP_DATE" ColumnName="SHIPMENT_COMP_DATE" />
+          <ScalarProperty Name="SHIPMENT_COMP_TIME" ColumnName="SHIPMENT_COMP_TIME" />
+          <ScalarProperty Name="SHIPMENT_COMP" ColumnName="SHIPMENT_COMP" />
+          <ScalarProperty Name="SHPMT_STRT__MAIN_GATE_OUT_DATE" ColumnName="SHPMT_STRT__MAIN_GATE_OUT_DATE" />
+          <ScalarProperty Name="SHPMT_STRT__MAIN_GATE_OUT_TIME" ColumnName="SHPMT_STRT__MAIN_GATE_OUT_TIME" />
+          <ScalarProperty Name="SHPMT_STRT__MAIN_GATE_OUT" ColumnName="SHPMT_STRT__MAIN_GATE_OUT" />
+          <ScalarProperty Name="SHIPMENT_END_DATE" ColumnName="SHIPMENT_END_DATE" />
+          <ScalarProperty Name="SHIPMENT_END_TIME" ColumnName="SHIPMENT_END_TIME" />
+          <ScalarProperty Name="SHIPMENT_END" ColumnName="SHIPMENT_END" />
+          <ScalarProperty Name="TARGET_QTY_KG" ColumnName="TARGET_QTY_KG" />
+          <ScalarProperty Name="GROSS_QTY_KG" ColumnName="GROSS_QTY_KG" />
+          <ScalarProperty Name="NET_QTY_KG" ColumnName="NET_QTY_KG" />
+          <ScalarProperty Name="FirstWeight_DATE" ColumnName="FirstWeight_DATE" />
+          <ScalarProperty Name="FirstWeight_TIME" ColumnName="FirstWeight_TIME" />
+          <ScalarProperty Name="VehicleNature" ColumnName="VehicleNature" />
+          <ScalarProperty Name="ShipmentRemarks" ColumnName="ShipmentRemarks" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_VehicleInMainGateINOUT" FunctionName="DFLDBModel.Store.SP_VehicleInMainGateINOUT">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DFLDBModel.SP_VehicleInMainGateINOUT_Result">
+          <ScalarProperty Name="TransporterTitle" ColumnName="TransporterTitle" />
+          <ScalarProperty Name="VehicleNatureTitle" ColumnName="VehicleNatureTitle" />
+          <ScalarProperty Name="VehicleTitle" ColumnName="VehicleTitle" />
+          <ScalarProperty Name="NIC" ColumnName="NIC" />
+          <ScalarProperty Name="DriverTitle" ColumnName="DriverTitle" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="tblVehicleEntryHeads">
+      <EntityTypeMapping TypeName="DFLDBModel.tblVehicleEntryHead">
+        <MappingFragment StoreEntitySet="tblVehicleEntryHead">
+          <ScalarProperty Name="ShipmentRemarks2" ColumnName="ShipmentRemarks2" />
+          <ScalarProperty Name="ShipmentRemarks1" ColumnName="ShipmentRemarks1" />
+          <ScalarProperty Name="ShipmentDocumentDate" ColumnName="ShipmentDocumentDate" />
+          <ScalarProperty Name="ShipmentDocumentNo" ColumnName="ShipmentDocumentNo" />
+          <ScalarProperty Name="CloseTime" ColumnName="CloseTime" />
+          <ScalarProperty Name="CloseDate" ColumnName="CloseDate" />
+          <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="EntryStatus" ColumnName="EntryStatus" />
+          <ScalarProperty Name="AdditionalFreight" ColumnName="AdditionalFreight" />
+          <ScalarProperty Name="SampleNo" ColumnName="SampleNo" />
+          <ScalarProperty Name="AdditionalWeightInKg" ColumnName="AdditionalWeightInKg" />
+          <ScalarProperty Name="DocDate" ColumnName="DocDate" />
+          <ScalarProperty Name="DocNo" ColumnName="DocNo" />
+          <ScalarProperty Name="PartyNetWeightInKg" ColumnName="PartyNetWeightInKg" />
+          <ScalarProperty Name="PartyPODate" ColumnName="PartyPODate" />
+          <ScalarProperty Name="PartyPONo" ColumnName="PartyPONo" />
+          <ScalarProperty Name="PartyDescription" ColumnName="PartyDescription" />
+          <ScalarProperty Name="PartyID" ColumnName="PartyID" />
+          <ScalarProperty Name="PartyType" ColumnName="PartyType" />
+          <ScalarProperty Name="RFCardID" ColumnName="RFCardID" />
+          <ScalarProperty Name="NIC" ColumnName="NIC" />
+          <ScalarProperty Name="DriverID" ColumnName="DriverID" />
+          <ScalarProperty Name="TransporterID" ColumnName="TransporterID" />
+          <ScalarProperty Name="VehicleNo" ColumnName="VehicleNo" />
+          <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
+          <ScalarProperty Name="VehicleNatureID" ColumnName="VehicleNatureID" />
+          <ScalarProperty Name="VehicleEntryMode" ColumnName="VehicleEntryMode" />
+          <ScalarProperty Name="TranType" ColumnName="TranType" />
+          <ScalarProperty Name="BranchID" ColumnName="BranchID" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+          <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+          <ScalarProperty Name="TranDate" ColumnName="TranDate" />
+          <ScalarProperty Name="TranID" ColumnName="TranID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SP_VehicleQRCode1" FunctionName="DFLDBModel.Store.SP_VehicleQRCode">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DFLDBModel.SP_VehicleQRCode1_Result">
+          <ScalarProperty Name="TranID" ColumnName="TranID" />
+          <ScalarProperty Name="TranDate" ColumnName="TranDate" />
+          <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+          <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="BranchID" ColumnName="BranchID" />
+          <ScalarProperty Name="TranType" ColumnName="TranType" />
+          <ScalarProperty Name="VehicleEntryMode" ColumnName="VehicleEntryMode" />
+          <ScalarProperty Name="VehicleNatureID" ColumnName="VehicleNatureID" />
+          <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
+          <ScalarProperty Name="VehicleNo" ColumnName="VehicleNo" />
+          <ScalarProperty Name="TransporterID" ColumnName="TransporterID" />
+          <ScalarProperty Name="DriverID" ColumnName="DriverID" />
+          <ScalarProperty Name="NIC" ColumnName="NIC" />
+          <ScalarProperty Name="RFCardID" ColumnName="RFCardID" />
+          <ScalarProperty Name="PartyType" ColumnName="PartyType" />
+          <ScalarProperty Name="PartyID" ColumnName="PartyID" />
+          <ScalarProperty Name="PartyDescription" ColumnName="PartyDescription" />
+          <ScalarProperty Name="PartyPONo" ColumnName="PartyPONo" />
+          <ScalarProperty Name="PartyPODate" ColumnName="PartyPODate" />
+          <ScalarProperty Name="PartyNetWeightInKg" ColumnName="PartyNetWeightInKg" />
+          <ScalarProperty Name="DocNo" ColumnName="DocNo" />
+          <ScalarProperty Name="DocDate" ColumnName="DocDate" />
+          <ScalarProperty Name="AdditionalWeightInKg" ColumnName="AdditionalWeightInKg" />
+          <ScalarProperty Name="SampleNo" ColumnName="SampleNo" />
+          <ScalarProperty Name="AdditionalFreight" ColumnName="AdditionalFreight" />
+          <ScalarProperty Name="EntryStatus" ColumnName="EntryStatus" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+          <ScalarProperty Name="CloseDate" ColumnName="CloseDate" />
+          <ScalarProperty Name="CloseTime" ColumnName="CloseTime" />
+          <ScalarProperty Name="ShipmentDocumentNo" ColumnName="ShipmentDocumentNo" />
+          <ScalarProperty Name="ShipmentDocumentDate" ColumnName="ShipmentDocumentDate" />
+          <ScalarProperty Name="ShipmentRemarks1" ColumnName="ShipmentRemarks1" />
+          <ScalarProperty Name="ShipmentRemarks2" ColumnName="ShipmentRemarks2" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_Insert" FunctionName="DFLDBModel.Store.SP_Insert" />
+    <FunctionImportMapping FunctionImportName="Sp_InsertTransport" FunctionName="DFLDBModel.Store.Sp_InsertTransport" />
+    <EntitySetMapping Name="tblTransporters">
+      <EntityTypeMapping TypeName="DFLDBModel.tblTransporter">
+        <MappingFragment StoreEntitySet="tblTransporter">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="PreferenceNo" ColumnName="PreferenceNo" />
+          <ScalarProperty Name="WebSite" ColumnName="WebSite" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="FaxNo" ColumnName="FaxNo" />
+          <ScalarProperty Name="TelNo" ColumnName="TelNo" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="TotalVehicles" ColumnName="TotalVehicles" />
+          <ScalarProperty Name="TransporterType" ColumnName="TransporterType" />
+          <ScalarProperty Name="TransporterTitle" ColumnName="TransporterTitle" />
+          <ScalarProperty Name="OldCode" ColumnName="OldCode" />
+          <ScalarProperty Name="TransporterRefNo" ColumnName="TransporterRefNo" />
+          <ScalarProperty Name="TransporterID" ColumnName="TransporterID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ActivityLogs">
+      <EntityTypeMapping TypeName="DFLDBModel.ActivityLog">
+        <MappingFragment StoreEntitySet="ActivityLog">
+          <ScalarProperty Name="ActivityType" ColumnName="ActivityType" />
+          <ScalarProperty Name="QRCodeNo" ColumnName="QRCodeNo" />
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+          <ScalarProperty Name="DocId" ColumnName="DocId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SP_InsertActivityLog" FunctionName="DFLDBModel.Store.SP_InsertActivityLog" />
+    <FunctionImportMapping FunctionImportName="SP_VehicleNatureType" FunctionName="DFLDBModel.Store.SP_VehicleNatureType">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DFLDBModel.SP_VehicleNatureType_Result">
+          <ScalarProperty Name="VehicleNatureID" ColumnName="VehicleNatureID" />
+          <ScalarProperty Name="VehicleNatureRefNo" ColumnName="VehicleNatureRefNo" />
+          <ScalarProperty Name="VehicleNatureOldRefNo" ColumnName="VehicleNatureOldRefNo" />
+          <ScalarProperty Name="VehicleNatureTitle" ColumnName="VehicleNatureTitle" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="VehicleNatureType" ColumnName="VehicleNatureType" />
+          <ScalarProperty Name="IsQCRequired" ColumnName="IsQCRequired" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="tbl_Driver">
+      <EntityTypeMapping TypeName="DFLDBModel.tbl_Driver">
+        <MappingFragment StoreEntitySet="tbl_Driver">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+          <ScalarProperty Name="TelNo" ColumnName="TelNo" />
+          <ScalarProperty Name="NIC" ColumnName="NIC" />
+          <ScalarProperty Name="TransporterID" ColumnName="TransporterID" />
+          <ScalarProperty Name="DriverTitle" ColumnName="DriverTitle" />
+          <ScalarProperty Name="DriverRefNo" ColumnName="DriverRefNo" />
+          <ScalarProperty Name="DriverID" ColumnName="DriverID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SP_InsertDetailsDriver" FunctionName="DFLDBModel.Store.SP_InsertDetailsDriver" />
+    <FunctionImportMapping FunctionImportName="SP_TransporterList" FunctionName="DFLDBModel.Store.SP_TransporterList" />
+    <FunctionImportMapping FunctionImportName="SP_SelectProductList" FunctionName="DFLDBModel.Store.SP_SelectProductList" />
+    <FunctionImportMapping FunctionImportName="SP_SelectUOMList" FunctionName="DFLDBModel.Store.SP_SelectUOMList" />
+    <FunctionImportMapping FunctionImportName="Sp_VehichleInfo" FunctionName="DFLDBModel.Store.Sp_VehichleInfo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DFLDBModel.Sp_VehichleInfo_Result">
+          <ScalarProperty Name="VehicleNo" ColumnName="VehicleNo" />
+          <ScalarProperty Name="RFCardID" ColumnName="RFCardID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_INSERT_New_Vehicles" FunctionName="DFLDBModel.Store.SP_INSERT_New_Vehicles" />
+    <FunctionImportMapping FunctionImportName="SP_SelectVehicles" FunctionName="DFLDBModel.Store.SP_SelectVehicles">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DFLDBModel.SP_SelectVehicles_Result">
+          <ScalarProperty Name="MfgYear" ColumnName="MfgYear" />
+          <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_VehichleDetail" FunctionName="DFLDBModel.Store.Sp_VehichleDetail">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DFLDBModel.Sp_VehichleDetail_Result">
+          <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
+          <ScalarProperty Name="VehicleRefNo" ColumnName="VehicleRefNo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="WeighmentEntries">
+      <EntityTypeMapping TypeName="DFLDBModel.WeighmentEntry">
+        <MappingFragment StoreEntitySet="WeighmentEntries">
+          <ScalarProperty Name="QrCode" ColumnName="QrCode" />
+          <ScalarProperty Name="WeighmentDetails" ColumnName="WeighmentDetails" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="ConsecNo" ColumnName="ConsecNo" />
+          <ScalarProperty Name="VehicleNo" ColumnName="VehicleNo" />
+          <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SP_InsertWeighmentEntries" FunctionName="DFLDBModel.Store.SP_InsertWeighmentEntries" />
+    <EntitySetMapping Name="DeviceLocations">
+      <EntityTypeMapping TypeName="DFLDBModel.DeviceLocation">
+        <MappingFragment StoreEntitySet="DeviceLocation">
+          <ScalarProperty Name="DeviceName" ColumnName="DeviceName" />
+          <ScalarProperty Name="DeviceId" ColumnName="DeviceId" />
+          <ScalarProperty Name="ProcessType" ColumnName="ProcessType" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Branch" ColumnName="Branch" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SP_DeviceLocation" FunctionName="DFLDBModel.Store.SP_DeviceLocation">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DFLDBModel.SP_DeviceLocation_Result">
+          <ScalarProperty Name="DeviceName" ColumnName="DeviceName" />
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+          <ScalarProperty Name="ActivityDate" ColumnName="ActivityDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_ShipmentDocNo" FunctionName="DFLDBModel.Store.SP_ShipmentDocNo" />
+    <FunctionImportMapping FunctionImportName="SP_InBound" FunctionName="DFLDBModel.Store.SP_InBound">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DFLDBModel.SP_InBound_Result">
+          <ScalarProperty Name="SupplierTitle" ColumnName="SupplierTitle" />
+          <ScalarProperty Name="Supplier_Description" ColumnName="Supplier Description" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_OutBound" FunctionName="DFLDBModel.Store.SP_OutBound">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DFLDBModel.SP_OutBound_Result">
+          <ScalarProperty Name="CustomerTitle" ColumnName="CustomerTitle" />
+          <ScalarProperty Name="Customer_Description" ColumnName="Customer Description" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

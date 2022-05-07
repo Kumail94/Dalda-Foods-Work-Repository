@@ -1,0 +1,225 @@
+﻿@model List<Vechile_Tracking_Systems.Models.VehicleModel>
+@{
+    ViewBag.Title = "Vehicle";
+}
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<style>
+    .card {
+        border-radius: 4px;
+        background: #fff;
+        box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+        transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+        padding: 14px 60px 18px 36px;
+        cursor: pointer;
+        background-repeat: no-repeat;
+        background-position: right;
+        background-size: 90px;
+        max-width: 950px;
+        width: 600px;
+        margin: 15px;
+        position: relative;
+        overflow: hidden;
+        background: #fff;
+        box-shadow: 0 0 29px 0 rgb(18 66 101 / 8%);
+        transition: all 0.3s ease-in-out;
+        border-radius: 8px;
+        z-index: 1;
+        margin-top: 10px;
+    }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+        }
+
+
+    h1 {
+        font: bold;
+        font-family: 'Lucida Sans';
+        color: #5c5858;
+        opacity: inherit;
+        margin-top: 25px;
+    }
+
+
+
+    .fixed-top {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+    }
+
+    input[type=text] {
+        border: none;
+        color: #0d0d0d;
+        padding: 5px 6px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 12px;
+        margin: 5px;
+        width: 100%;
+        border: 2px solid #f6f6f6;
+        -webkit-transition: all 0.5s ease-in-out;
+        -moz-transition: all 0.5s ease-in-out;
+        -o-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+        -webkit-border-radius: 5px 5px 5px 5px;
+        border-radius: 5px 5px 5px 5px;
+    }
+
+        input[type=text]:focus {
+            background-color: #fff;
+            border-bottom: 2px solid #5fbae9;
+        }
+
+
+    select {
+        background-color: #f6f6f6;
+        border: none;
+        color: #0d0d0d;
+        padding: 6px 7px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 12px;
+        margin: 5px;
+        width: 100%;
+        border: 2px solid #f6f6f6;
+        -webkit-transition: all 0.5s ease-in-out;
+        -moz-transition: all 0.5s ease-in-out;
+        -o-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+        -webkit-border-radius: 5px 5px 5px 5px;
+        border-radius: 5px 5px 5px 5px;
+    }
+
+    select {
+        background-color: #fff;
+        border-bottom: 2px solid #5fbae9;
+    }
+
+    input[type=date] {
+        /*background-color: #f6f6f6;*/
+        border: none;
+        color: #0d0d0d;
+        padding: 6px 7px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 12px;
+        margin: 5px;
+        width: 100%;
+        border: 2px solid #f6f6f6;
+        -webkit-transition: all 0.5s ease-in-out;
+        -moz-transition: all 0.5s ease-in-out;
+        -o-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+        -webkit-border-radius: 5px 5px 5px 5px;
+        border-radius: 5px 5px 5px 5px;
+    }
+
+        input[type=date]:focus {
+            background-color: #fff;
+            border-bottom: 2px solid #5fbae9;
+        }
+</style>
+
+<div class="card">
+    <h2 class="title"><a href="@Url.Action("Vehicle")">Vehicle</a></h2>
+    @*<div class="form-group">
+            <label>Vehicle No.&nbsp;</label>
+            <input type="text" name="vechicleNo" value="" id="vehicleNumber" />&nbsp;
+        </div>*@
+    @if (Model != null)
+    {
+        foreach (Vechile_Tracking_Systems.Models.VehicleModel item in ViewBag.SPVehicles)
+        {
+            <div class="row">
+                @*<div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Vehicle No.&nbsp;</label>
+                            <input type="text" name="vechicleNo" value="" id="vehicleNumber" />&nbsp;
+                        </div>
+                    </div>*@
+
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Vechile Title</label>
+                        <select>
+                            <option value="value">@item.VehicleTitle</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Vehicle Nature</label>
+                        <select>
+                            <option value="value"> --Select--</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Driver</label>
+                        <select>
+                            <option value="value">@item.DriverTitle.ToString()</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Tansporter</label>
+                        <select>
+                            <option value="value">@item.TransportTitle.ToString()</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>CNIC No.</label>
+                        <select>
+                            <option value="value">@item.NIC.ToString()</option>
+                        </select>
+                    </div>
+
+                </div>
+            </div>
+
+        }
+
+    }
+    @*<input type="button" name="name" value="Load" onclick="fetchingDatabasedonVehicleNo()" />*@
+</div>
+
+
+@*<script>
+        function fetchingDatabasedonVehicleNo() {
+            var vehicleNo = $('#vehicleNumber').val();
+            console.log(vehicleNo)
+            $.ajax({
+                type: "POST",
+                /*dataType: "JSON",*/
+                url: "Vehicle/",
+                data: {
+                    vehicleNo: vehicleNo
+                },
+                success: (result) => {
+                    console.log(result)
+                }
+            });
+        }
+    </script>*@

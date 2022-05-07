@@ -1,0 +1,433 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DFLDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="DFLDBModelStoreContainer">
+    <EntitySet Name="ChildForms" EntityType="DFLDBModel.Store.ChildForms" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Components" EntityType="DFLDBModel.Store.Components" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Form_List" EntityType="DFLDBModel.Store.Form_List" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Form_Value" EntityType="DFLDBModel.Store.Form_Value" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="GRReports" EntityType="DFLDBModel.Store.GRReports" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ParentForms" EntityType="DFLDBModel.Store.ParentForms" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Reports" EntityType="DFLDBModel.Store.Reports" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Report_Parameters" EntityType="DFLDBModel.Store.Report_Parameters" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="sysdiagrams" EntityType="DFLDBModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Users" EntityType="DFLDBModel.Store.Users" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserLogs" EntityType="DFLDBModel.Store.UserLogs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="table_MainGate" EntityType="DFLDBModel.Store.table_MainGate" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tblProducts" EntityType="DFLDBModel.Store.tblProducts" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tblProductTypes" EntityType="DFLDBModel.Store.tblProductTypes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tblUOMs" EntityType="DFLDBModel.Store.tblUOMs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tblVehicles" EntityType="DFLDBModel.Store.tblVehicles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tblVehicleEntryDetailProducts" EntityType="DFLDBModel.Store.tblVehicleEntryDetailProducts" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tblVehicleNatures" EntityType="DFLDBModel.Store.tblVehicleNatures" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tblVehicleEntryDetails" EntityType="DFLDBModel.Store.tblVehicleEntryDetails" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tblVehicleEntryHeads" EntityType="DFLDBModel.Store.tblVehicleEntryHeads" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tblTransporters" EntityType="DFLDBModel.Store.tblTransporters" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ActivityLogs" EntityType="DFLDBModel.Store.ActivityLogs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_Driver" EntityType="DFLDBModel.Store.tbl_Driver" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="WeighmentEntries" EntityType="DFLDBModel.Store.WeighmentEntries" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DeviceLocations" EntityType="DFLDBModel.Store.DeviceLocations" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="ChildForms">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="ChildFormName" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="ParentId" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Components">
+    <Key>
+      <PropertyRef Name="Component_Id" />
+    </Key>
+    <Property Name="Component_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="varchar" Nullable="true" MaxLength="100" />
+    <Property Name="Short_Name" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="Heading" Type="varchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Form_List">
+    <Key>
+      <PropertyRef Name="ClientID" />
+      <PropertyRef Name="ProjectID" />
+      <PropertyRef Name="SubProjectID" />
+      <PropertyRef Name="ParentID" />
+      <PropertyRef Name="FormID" />
+    </Key>
+    <Property Name="ClientID" Type="int" Nullable="false" />
+    <Property Name="ProjectID" Type="int" Nullable="false" />
+    <Property Name="SubProjectID" Type="int" Nullable="false" />
+    <Property Name="ParentID" Type="int" Nullable="false" />
+    <Property Name="FormID" Type="int" Nullable="false" />
+    <Property Name="Description" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="Header" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="Category" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="Path" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="ShortName" Type="varchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Form_Value">
+    <Key>
+      <PropertyRef Name="ClientID" />
+      <PropertyRef Name="ProjectID" />
+      <PropertyRef Name="SubProjectID" />
+      <PropertyRef Name="ParentID" />
+      <PropertyRef Name="FormID" />
+      <PropertyRef Name="ComponentID" />
+      <PropertyRef Name="HierarchyNo" />
+    </Key>
+    <Property Name="ClientID" Type="int" Nullable="false" />
+    <Property Name="ProjectID" Type="int" Nullable="false" />
+    <Property Name="SubProjectID" Type="int" Nullable="false" />
+    <Property Name="ParentID" Type="int" Nullable="false" />
+    <Property Name="FormID" Type="int" Nullable="false" />
+    <Property Name="ComponentID" Type="int" Nullable="false" />
+    <Property Name="HierarchyNo" Type="int" Nullable="false" />
+    <Property Name="SelectionID" Type="int" Nullable="true" />
+    <Property Name="Parameter_Desc" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="Label" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="Stored_Procedure" Type="varchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="GRReports">
+    <Key>
+      <PropertyRef Name="ReportId" />
+    </Key>
+    <Property Name="ReportId" Type="int" Nullable="false" />
+    <Property Name="WareHouse" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="ItemCode" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="GRIRNo" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="TransferNoteNo" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="TypeOfTransfer" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="Rejection" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="Date" Type="datetime" Nullable="true" />
+  </EntityType>
+  <EntityType Name="ParentForms">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="ParentFormName" Type="varchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Reports">
+    <Key>
+      <PropertyRef Name="Report_Id" />
+    </Key>
+    <Property Name="Report_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Report_Description" Type="varchar" Nullable="true" MaxLength="200" />
+    <Property Name="Parent_Id" Type="int" Nullable="true" />
+    <Property Name="Report_Path" Type="varchar" Nullable="true" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Report_Parameters">
+    <Key>
+      <PropertyRef Name="Report_Id" />
+    </Key>
+    <Property Name="Report_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Report_Parameter1" Type="varchar" Nullable="true" MaxLength="100" />
+    <Property Name="Parameter_Type" Type="varchar" Nullable="true" MaxLength="100" />
+    <Property Name="Component" Type="varchar" Nullable="true" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" Nullable="true" />
+    <Property Name="definition" Type="varbinary(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="User_Id" />
+    </Key>
+    <Property Name="User_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="First_Name" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="Last_Name" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="User_Name" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="Password" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="Email" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="Contact_Number" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="BranchID" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="UserLogs">
+    <Key>
+      <PropertyRef Name="Log_Id" />
+    </Key>
+    <Property Name="Log_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="User_Id" Type="int" Nullable="true" />
+    <Property Name="User_name" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="Login_Time" Type="datetime" Nullable="true" />
+    <Property Name="Logout_Time" Type="datetime" Nullable="true" />
+    <Property Name="Host_Name" Type="varchar" Nullable="true" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="table_MainGate">
+    <Key>
+      <PropertyRef Name="TranID" />
+      <PropertyRef Name="TransactionID" />
+      <PropertyRef Name="PONumber" />
+      <PropertyRef Name="DocNo" />
+    </Key>
+    <Property Name="TranID" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="TransactionID" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="PONumber" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="DocNo" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Dispatch_Others" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="VehicleEntryFor" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="TransactionDate" Type="datetime" Nullable="true" />
+    <Property Name="Depot" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="DocDate" Type="datetime" Nullable="true" />
+    <Property Name="PartyType" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="PODate" Type="datetime" Nullable="true" />
+    <Property Name="PartyDescription" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="Product" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="PhysicalQuantity" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="UOM" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="ShipmentDcoumentNo" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="ShipmentDocumentDate" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="ShipmentRemarks1" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="ShipmentRemarks2" Type="varchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tblProducts">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="bigint" Nullable="false" />
+    <Property Name="ProductRefNo" Type="varchar" Nullable="false" MaxLength="13" />
+    <Property Name="ProductTitle" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="CompanyID" Type="bigint" Nullable="false" />
+    <Property Name="BusinessUnitID" Type="bigint" Nullable="false" />
+    <Property Name="ProductClassID" Type="bigint" Nullable="false" />
+    <Property Name="ProductBrandID" Type="bigint" Nullable="false" />
+    <Property Name="ProductPackagingID" Type="bigint" Nullable="false" />
+    <Property Name="ProductCategoryID" Type="bigint" Nullable="false" />
+    <Property Name="ProductTypeID" Type="bigint" Nullable="false" />
+    <Property Name="ProductNatureID" Type="bigint" Nullable="false" />
+    <Property Name="ExtProdGroupID" Type="bigint" Nullable="false" />
+    <Property Name="NetWeight" Type="float" Nullable="false" />
+    <Property Name="GrossWeight" Type="float" Nullable="false" />
+    <Property Name="UOMID" Type="varchar" Nullable="false" MaxLength="5" />
+    <Property Name="Length" Type="float" Nullable="false" />
+    <Property Name="Width" Type="float" Nullable="false" />
+    <Property Name="Height" Type="float" Nullable="false" />
+    <Property Name="TaxCategoryID" Type="bigint" Nullable="false" />
+    <Property Name="IsTaxable" Type="bit" Nullable="false" />
+    <Property Name="PcsPerBox" Type="float" Nullable="false" />
+    <Property Name="BoxPerCarton" Type="float" Nullable="false" />
+    <Property Name="ExpiryAgeMonths" Type="int" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="IsFinish" Type="bit" Nullable="false" />
+    <Property Name="IsLoose" Type="bit" Nullable="false" />
+    <Property Name="IsCP" Type="bit" Nullable="false" />
+    <Property Name="NationWeekCover" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="DepotWeekCover" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="IsIncludeInDBR" Type="bit" Nullable="false" />
+    <Property Name="IsIncludeInDispatchPlan" Type="bit" Nullable="false" />
+    <Property Name="IsERPItem" Type="bit" Nullable="false" />
+    <Property Name="IsAdminUpdated" Type="bit" Nullable="false" />
+    <Property Name="StorageTankID" Type="varchar" Nullable="false" MaxLength="5" />
+    <Property Name="WeightTolerance_Min" Type="float" Nullable="false" />
+    <Property Name="WeightTolerance_Max" Type="float" Nullable="false" />
+    <Property Name="ProductNature" Type="char" Nullable="false" MaxLength="1" />
+    <Property Name="IsBackDateDispatchAllowed" Type="bit" Nullable="false" />
+    <Property Name="AverageRate" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblProductTypes">
+    <Key>
+      <PropertyRef Name="ProductTypeID" />
+    </Key>
+    <Property Name="ProductTypeID" Type="bigint" Nullable="false" />
+    <Property Name="ProductTypeRefNo" Type="varchar" Nullable="false" MaxLength="5" />
+    <Property Name="ProductTypeTitle" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="Weight" Type="float" Nullable="false" />
+    <Property Name="CompanyID" Type="bigint" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblUOMs">
+    <Key>
+      <PropertyRef Name="UOMID" />
+    </Key>
+    <Property Name="UOMID" Type="bigint" Nullable="false" />
+    <Property Name="UOMRefNo" Type="varchar" Nullable="false" MaxLength="5" />
+    <Property Name="UOMTitle" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="CompanyID" Type="bigint" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblVehicles">
+    <Key>
+      <PropertyRef Name="VehicleID" />
+    </Key>
+    <Property Name="VehicleID" Type="bigint" Nullable="false" />
+    <Property Name="VehicleRefNo" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="OldCode" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="VehicleTitle" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="BranchID" Type="bigint" Nullable="false" />
+    <Property Name="VehicleNatureID" Type="bigint" Nullable="false" />
+    <Property Name="VehicleTypeID" Type="bigint" Nullable="false" />
+    <Property Name="MinimumWeightForPayable" Type="float" Nullable="false" />
+    <Property Name="VehicleCategoryID" Type="bigint" Nullable="false" />
+    <Property Name="TransporterID" Type="bigint" Nullable="false" />
+    <Property Name="Length" Type="float" Nullable="false" />
+    <Property Name="Width" Type="float" Nullable="false" />
+    <Property Name="Height" Type="float" Nullable="false" />
+    <Property Name="Capacity" Type="float" Nullable="false" />
+    <Property Name="Wheels" Type="int" Nullable="false" />
+    <Property Name="Axle" Type="int" Nullable="false" />
+    <Property Name="MfgYear" Type="int" Nullable="false" />
+    <Property Name="Priority" Type="int" Nullable="false" />
+    <Property Name="PreferenceNo" Type="int" Nullable="false" />
+    <Property Name="MinumumLoadInTon" Type="float" Nullable="false" />
+    <Property Name="MaximumLoadInTon" Type="float" Nullable="false" />
+    <Property Name="CompanyID" Type="bigint" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="TranType" Type="char" Nullable="false" MaxLength="1" />
+    <Property Name="VehicleNo" Type="varchar" Nullable="false" MaxLength="40" />
+  </EntityType>
+  <EntityType Name="tblVehicleEntryDetailProducts">
+    <Key>
+      <PropertyRef Name="TranDtlID" />
+    </Key>
+    <Property Name="TranDtlID" Type="bigint" Nullable="false" />
+    <Property Name="TranID" Type="bigint" Nullable="false" />
+    <Property Name="CompanyID" Type="bigint" Nullable="false" />
+    <Property Name="ProductID" Type="bigint" Nullable="false" />
+    <Property Name="Description" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="Quantity" Type="float" Nullable="false" />
+    <Property Name="UOMID" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblVehicleNatures">
+    <Key>
+      <PropertyRef Name="VehicleNatureID" />
+    </Key>
+    <Property Name="VehicleNatureID" Type="bigint" Nullable="false" />
+    <Property Name="VehicleNatureRefNo" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="VehicleNatureOldRefNo" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="VehicleNatureTitle" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="CompanyID" Type="bigint" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="VehicleNatureType" Type="varchar" Nullable="false" MaxLength="3" />
+    <Property Name="IsQCRequired" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblVehicleEntryDetails">
+    <Key>
+      <PropertyRef Name="TranDtlID" />
+    </Key>
+    <Property Name="TranDtlID" Type="bigint" Nullable="false" />
+    <Property Name="TranID" Type="bigint" Nullable="true" />
+    <Property Name="CompanyID" Type="bigint" Nullable="true" />
+    <Property Name="RFDeviceLocationID" Type="bigint" Nullable="true" />
+    <Property Name="IPAddress" Type="varchar" Nullable="true" MaxLength="15" />
+    <Property Name="RFWorkCodeID" Type="bigint" Nullable="true" />
+    <Property Name="Activity" Type="int" Nullable="true" />
+    <Property Name="ActivityDate" Type="datetime" Nullable="true" />
+    <Property Name="ActivityTime" Type="varchar" Nullable="true" MaxLength="10" />
+    <Property Name="IsWorkCodeUsed" Type="bit" Nullable="true" />
+    <Property Name="RouteOrderNo" Type="int" Nullable="true" />
+    <Property Name="WeightInKg" Type="float" Nullable="true" />
+    <Property Name="QCNo" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="QCResult" Type="varchar" Nullable="true" MaxLength="1" />
+    <Property Name="Remarks" Type="varchar" Nullable="true" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="tblVehicleEntryHeads">
+    <Key>
+      <PropertyRef Name="TranID" />
+    </Key>
+    <Property Name="TranID" Type="bigint" Nullable="false" />
+    <Property Name="TranDate" Type="datetime" Nullable="false" />
+    <Property Name="TransactionID" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="TransactionDate" Type="datetime" Nullable="true" />
+    <Property Name="CompanyID" Type="bigint" Nullable="true" />
+    <Property Name="BranchID" Type="bigint" Nullable="true" />
+    <Property Name="TranType" Type="char" Nullable="true" MaxLength="15" />
+    <Property Name="VehicleEntryMode" Type="char" Nullable="true" MaxLength="20" />
+    <Property Name="VehicleNatureID" Type="bigint" Nullable="true" />
+    <Property Name="VehicleID" Type="bigint" Nullable="true" />
+    <Property Name="VehicleNo" Type="varchar" Nullable="true" MaxLength="40" />
+    <Property Name="TransporterID" Type="bigint" Nullable="true" />
+    <Property Name="DriverID" Type="bigint" Nullable="true" />
+    <Property Name="NIC" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="RFCardID" Type="bigint" Nullable="true" />
+    <Property Name="PartyType" Type="char" Nullable="true" MaxLength="20" />
+    <Property Name="PartyID" Type="bigint" Nullable="true" />
+    <Property Name="PartyDescription" Type="varchar" Nullable="true" MaxLength="100" />
+    <Property Name="PartyPONo" Type="varchar" Nullable="true" MaxLength="40" />
+    <Property Name="PartyPODate" Type="datetime" Nullable="true" />
+    <Property Name="PartyNetWeightInKg" Type="float" Nullable="true" />
+    <Property Name="DocNo" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="DocDate" Type="datetime" Nullable="true" />
+    <Property Name="AdditionalWeightInKg" Type="float" Nullable="true" />
+    <Property Name="SampleNo" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="AdditionalFreight" Type="float" Nullable="true" />
+    <Property Name="EntryStatus" Type="char" Nullable="true" MaxLength="15" />
+    <Property Name="CreationDate" Type="datetime" Nullable="true" />
+    <Property Name="CreationTime" Type="char" Nullable="true" MaxLength="10" />
+    <Property Name="CloseDate" Type="datetime" Nullable="true" />
+    <Property Name="CloseTime" Type="char" Nullable="true" MaxLength="10" />
+    <Property Name="ShipmentDocumentNo" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="ShipmentDocumentDate" Type="datetime" Nullable="true" />
+    <Property Name="ShipmentRemarks1" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="ShipmentRemarks2" Type="varchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tblTransporters">
+    <Key>
+      <PropertyRef Name="TransporterID" />
+    </Key>
+    <Property Name="TransporterID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TransporterRefNo" Type="varchar" Nullable="false" MaxLength="5" />
+    <Property Name="OldCode" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="TransporterTitle" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="TransporterType" Type="varchar" Nullable="false" MaxLength="1" />
+    <Property Name="TotalVehicles" Type="int" Nullable="false" />
+    <Property Name="Address1" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="Address2" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="TelNo" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="FaxNo" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="Email" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="WebSite" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="PreferenceNo" Type="int" Nullable="false" />
+    <Property Name="CompanyID" Type="bigint" Nullable="false" />
+    <Property Name="IsActive" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ActivityLogs">
+    <Key>
+      <PropertyRef Name="DocId" />
+    </Key>
+    <Property Name="DocId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DateTime" Type="datetime" Nullable="true" />
+    <Property Name="QRCodeNo" Type="varchar" Nullable="true" MaxLength="100" />
+    <Property Name="ActivityType" Type="varchar" Nullable="true" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tbl_Driver">
+    <Key>
+      <PropertyRef Name="DriverID" />
+    </Key>
+    <Property Name="DriverID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DriverRefNo" Type="varchar" Nullable="false" MaxLength="5" />
+    <Property Name="DriverTitle" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="TransporterID" Type="bigint" Nullable="false" />
+    <Property Name="NIC" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="TelNo" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="MobileNo" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="CompanyID" Type="bigint" Nullable="false" />
+    <Property Name="IsActive" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="WeighmentEntries">
+    <Key>
+      <PropertyRef Name="VehicleID" />
+    </Key>
+    <Property Name="VehicleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VehicleNo" Type="varchar" Nullable="true" MaxLength="80" />
+    <Property Name="ConsecNo" Type="varchar" Nullable="true" MaxLength="100" />
+    <Property Name="Date" Type="datetime" Nullable="true" />
+    <Property Name="Time" Type="datetime" Nullable="true" />
+    <Property Name="WeighmentDetails" Type="varchar" Nullable="true" MaxLength="255" />
+    <Property Name="QrCode" Type="varchar" Nullable="true" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="DeviceLocations">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Branch" Type="varchar" Nullable="true" MaxLength="100" />
+    <Property Name="Location" Type="varchar" Nullable="true" MaxLength="70" />
+    <Property Name="ProcessType" Type="varchar" Nullable="true" MaxLength="70" />
+    <Property Name="DeviceId" Type="varchar" Nullable="true" MaxLength="70" />
+    <Property Name="DeviceName" Type="varchar" Nullable="true" MaxLength="70" />
+  </EntityType>
+</Schema>

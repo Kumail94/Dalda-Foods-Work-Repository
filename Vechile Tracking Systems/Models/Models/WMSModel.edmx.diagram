@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9a36d5a3823b4fedad158682c8db4c00" Name="Diagram1" ZoomLevel="85">
+        <EntityTypeShape EntityType="DFLDBModel.ChildForm" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DFLDBModel.Component" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DFLDBModel.Form_List" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DFLDBModel.Form_Value" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DFLDBModel.GRReport" Width="1.5" PointX="6.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DFLDBModel.ParentForm" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DFLDBModel.Report" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DFLDBModel.Report_Parameter" Width="1.5" PointX="2.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DFLDBModel.sysdiagram" Width="1.5" PointX="8.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DFLDBModel.User" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DFLDBModel.UserLog" Width="1.5" PointX="4.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DFLDBModel.table_MainGate" Width="1.5" PointX="9.375" PointY="6.75" />
+        <EntityTypeShape EntityType="DFLDBModel.tblProduct" Width="1.5" PointX="0.75" PointY="11.75" />
+        <EntityTypeShape EntityType="DFLDBModel.tblProductType" Width="1.5" PointX="2.75" PointY="11.75" />
+        <EntityTypeShape EntityType="DFLDBModel.tblUOM" Width="1.5" PointX="4.75" PointY="11.75" />
+        <EntityTypeShape EntityType="DFLDBModel.tblVehicle" Width="1.5" PointX="6.75" PointY="11.75" />
+        <EntityTypeShape EntityType="DFLDBModel.tblVehicleEntryDetailProduct" Width="1.5" PointX="8.75" PointY="12.75" />
+        <EntityTypeShape EntityType="DFLDBModel.tblVehicleNature" Width="1.5" PointX="13.75" PointY="9.75" />
+        <EntityTypeShape EntityType="DFLDBModel.tblVehicleEntryDetail" Width="1.5" PointX="11.375" PointY="13.75" />
+        <EntityTypeShape EntityType="DFLDBModel.tblVehicleEntryHead" Width="1.5" PointX="13.375" PointY="13.75" />
+        <EntityTypeShape EntityType="DFLDBModel.tblTransporter" Width="1.5" PointX="11.375" PointY="4.75" />
+        <EntityTypeShape EntityType="DFLDBModel.ActivityLog" Width="1.5" PointX="13.375" PointY="0.75" />
+        <EntityTypeShape EntityType="DFLDBModel.tbl_Driver" Width="1.5" PointX="13.375" PointY="3.75" />
+        <EntityTypeShape EntityType="DFLDBModel.WeighmentEntry" Width="1.5" PointX="10.375" PointY="0.75" />
+        <EntityTypeShape EntityType="DFLDBModel.DeviceLocation" Width="1.5" PointX="3.375" PointY="14.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

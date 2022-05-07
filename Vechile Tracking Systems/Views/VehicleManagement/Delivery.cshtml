@@ -1,0 +1,130 @@
+﻿
+@{
+    ViewBag.Title = "Delivery";
+}
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<style>
+
+
+    .card {
+        border-radius: 4px;
+        background: #fff;
+        box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+        transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+        padding: 14px 60px 18px 36px;
+        cursor: pointer;
+        margin: 10px;
+    }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+        }
+
+    .col-sm-3 {
+        background-repeat: no-repeat;
+        background-position: right;
+        background-size: 90px;
+        max-width: 950px;
+        width: 600px;
+        position: relative;
+        overflow: hidden;
+        background: #fff;
+        box-shadow: 0 0 29px 0 rgb(18 66 101 / 8%);
+        transition: all 0.3s ease-in-out;
+        border-radius: 8px;
+        z-index: 1;
+        margin-top: 30px;
+    }
+
+    h1 {
+        font: bold;
+        font-family: 'Lucida Sans';
+        color: #5c5858;
+        opacity: inherit;
+        margin-top: 25px;
+    }
+
+    #header {
+        transition: all 0.5s;
+        background: #fff;
+        z-index: 997;
+        padding: 15px 0;
+        border-bottom: 1px solid #e6f2fb;
+        height: 70px;
+    }
+    #im {
+        height: 50px;
+        width: 120px;
+    }
+
+    .fixed-top {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+    }
+</style>
+
+<header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+        <div class="logo mr-auto"><img src="~/assets/img/Dalda-1.png" id="im" class="img-fluid" alt=""></div>
+    </div>
+</header>
+
+<div class="container">
+    <h1 class="text-center">Welcome to Delivery Module</h1>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="col-sm-3">
+                <div class="card">
+                    <h2 class="title" onclick="inBound()"><a href="@Url.Action("MainGateIn", "VehicleManagement")">In Bound Delivery</a></h2>
+                    <img src="~/assets/img/INBOUND.png" class="img-thumbnail" style="height:270px; width:450px" alt="Alternate Text" />
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="col-sm-3">
+                <div class="card">
+                    <h2 class="title" onclick="outBound()"><a href="@Url.Action("MainGateIn", "VehicleManagement")">Out Bound Delivery</a></h2>
+                    <img src="~/assets/img/outbound.jpg" class="img-responsive" style="height: 270px; width: 300px" alt="Alternate Text" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function inBound() {
+        $.ajax({
+            type: 'GET',
+            url: 'InOutBound',
+            data: {
+                ProcessType: 'Inbound'
+            },
+            success: (res) => {
+                console.log(res);
+            }
+        });
+    }
+    function outBound() {
+        $.ajax({
+            type: 'GET',
+            url: 'InOutBound',
+            data: {
+                ProcessType: 'OutBound'
+            },
+            success: (res) => {
+                console.log(res);
+            }
+        });
+    }
+</script>

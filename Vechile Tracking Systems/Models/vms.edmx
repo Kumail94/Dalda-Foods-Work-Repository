@@ -1,0 +1,1617 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DFLDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ActivityLog">
+          <Key>
+            <PropertyRef Name="DocId" />
+          </Key>
+          <Property Name="DocId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Date" Type="date" />
+          <Property Name="Time" Type="time" Precision="7" />
+          <Property Name="QRCodeNo" Type="varchar" MaxLength="100" />
+          <Property Name="ActivityType" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="DeviceLocation">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Branch" Type="varchar" MaxLength="100" />
+          <Property Name="Location" Type="varchar" MaxLength="70" />
+          <Property Name="ProcessType" Type="varchar" MaxLength="70" />
+          <Property Name="DeviceId" Type="varchar" MaxLength="70" />
+          <Property Name="DeviceName" Type="varchar" MaxLength="70" />
+        </EntityType>
+        <EntityType Name="table_MainGate">
+          <Key>
+            <PropertyRef Name="TranID" />
+            <PropertyRef Name="TransactionID" />
+            <PropertyRef Name="PONumber" />
+            <PropertyRef Name="DocNo" />
+          </Key>
+          <Property Name="TranID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TransactionID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PONumber" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DocNo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Dispatch/Others" Type="varchar" MaxLength="50" />
+          <Property Name="VehicleEntryFor" Type="varchar" MaxLength="50" />
+          <Property Name="TransactionDate" Type="date" />
+          <Property Name="Depot" Type="varchar" MaxLength="50" />
+          <Property Name="DocDate" Type="date" />
+          <Property Name="PartyType" Type="varchar" MaxLength="50" />
+          <Property Name="PODate" Type="date" />
+          <Property Name="PartyDescription" Type="varchar" MaxLength="50" />
+          <Property Name="Product" Type="varchar" MaxLength="50" />
+          <Property Name="PhysicalQuantity" Type="varchar" MaxLength="50" />
+          <Property Name="UOM" Type="varchar" MaxLength="50" />
+          <Property Name="ShipmentDcoumentNo" Type="varchar" MaxLength="50" />
+          <Property Name="ShipmentDocumentDate" Type="varchar" MaxLength="50" />
+          <Property Name="ShipmentRemarks1" Type="varchar" MaxLength="50" />
+          <Property Name="ShipmentRemarks2" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_Driver">
+          <Key>
+            <PropertyRef Name="DriverID" />
+          </Key>
+          <Property Name="DriverID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DriverRefNo" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="DriverTitle" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="TransporterID" Type="bigint" Nullable="false" />
+          <Property Name="NIC" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TelNo" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="MobileNo" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="CompanyID" Type="bigint" Nullable="false" />
+          <Property Name="IsActive" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblCustomer">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="bigint" Nullable="false" />
+          <Property Name="CustomerRefNo" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="CustomerTitle" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="CompanyID" Type="bigint" Nullable="false" />
+          <Property Name="ParentCustomerID" Type="bigint" Nullable="false" />
+          <Property Name="CustomerCategoryID" Type="bigint" Nullable="false" />
+          <Property Name="CustomerTypeID" Type="bigint" Nullable="false" />
+          <Property Name="Address1" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Address2" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="BranchID" Type="bigint" Nullable="false" />
+          <Property Name="NationalID" Type="bigint" Nullable="false" />
+          <Property Name="RegionID" Type="bigint" Nullable="false" />
+          <Property Name="AreaID" Type="bigint" Nullable="false" />
+          <Property Name="TerritoryID" Type="bigint" Nullable="false" />
+          <Property Name="TownID" Type="bigint" Nullable="false" />
+          <Property Name="RouteID" Type="bigint" Nullable="false" />
+          <Property Name="TelNo" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="FaxNo" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="OwnerName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ModeOfPaymentID" Type="bigint" Nullable="false" />
+          <Property Name="GSTNo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="NTNNo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsBlock" Type="bit" Nullable="false" />
+          <Property Name="IsDoubleTripAllowed" Type="bit" Nullable="false" />
+          <Property Name="IsLooseProductCustomer" Type="bit" Nullable="false" />
+          <Property Name="IsPONumberRequired" Type="bit" Nullable="false" />
+          <Property Name="IsResigned" Type="bit" Nullable="false" />
+          <Property Name="IsMonOff" Type="bit" Nullable="false" />
+          <Property Name="IsTueOff" Type="bit" Nullable="false" />
+          <Property Name="IsWedOff" Type="bit" Nullable="false" />
+          <Property Name="IsThuOff" Type="bit" Nullable="false" />
+          <Property Name="IsFriOff" Type="bit" Nullable="false" />
+          <Property Name="IsSatOff" Type="bit" Nullable="false" />
+          <Property Name="IsSunOff" Type="bit" Nullable="false" />
+          <Property Name="OpenTime" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="CloseTime" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="IsMonDispatch" Type="bit" Nullable="false" />
+          <Property Name="IsTueDispatch" Type="bit" Nullable="false" />
+          <Property Name="IsWedDispatch" Type="bit" Nullable="false" />
+          <Property Name="IsThuDispatch" Type="bit" Nullable="false" />
+          <Property Name="IsFriDispatch" Type="bit" Nullable="false" />
+          <Property Name="IsSatDispatch" Type="bit" Nullable="false" />
+          <Property Name="IsSunDispatch" Type="bit" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="IsAdminUpdated" Type="bit" Nullable="false" />
+          <Property Name="IsSubDistributer" Type="bit" Nullable="false" />
+          <Property Name="CreditDays" Type="int" Nullable="false" />
+          <Property Name="CreditLimit" Type="float" Nullable="false" />
+          <Property Name="IsPaymentInfoReqOnDO" Type="bit" Nullable="false" />
+          <Property Name="BusinessUnitID" Type="bigint" Nullable="false" />
+          <Property Name="ElinkCustomerRefNo" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblProduct">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="bigint" Nullable="false" />
+          <Property Name="ProductRefNo" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="ProductTitle" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="CompanyID" Type="bigint" Nullable="false" />
+          <Property Name="BusinessUnitID" Type="bigint" Nullable="false" />
+          <Property Name="ProductClassID" Type="bigint" Nullable="false" />
+          <Property Name="ProductBrandID" Type="bigint" Nullable="false" />
+          <Property Name="ProductPackagingID" Type="bigint" Nullable="false" />
+          <Property Name="ProductCategoryID" Type="bigint" Nullable="false" />
+          <Property Name="ProductTypeID" Type="bigint" Nullable="false" />
+          <Property Name="ProductNatureID" Type="bigint" Nullable="false" />
+          <Property Name="ExtProdGroupID" Type="bigint" Nullable="false" />
+          <Property Name="NetWeight" Type="float" Nullable="false" />
+          <Property Name="GrossWeight" Type="float" Nullable="false" />
+          <Property Name="UOMID" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="Length" Type="float" Nullable="false" />
+          <Property Name="Width" Type="float" Nullable="false" />
+          <Property Name="Height" Type="float" Nullable="false" />
+          <Property Name="TaxCategoryID" Type="bigint" Nullable="false" />
+          <Property Name="IsTaxable" Type="bit" Nullable="false" />
+          <Property Name="PcsPerBox" Type="float" Nullable="false" />
+          <Property Name="BoxPerCarton" Type="float" Nullable="false" />
+          <Property Name="ExpiryAgeMonths" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="IsFinish" Type="bit" Nullable="false" />
+          <Property Name="IsLoose" Type="bit" Nullable="false" />
+          <Property Name="IsCP" Type="bit" Nullable="false" />
+          <Property Name="NationWeekCover" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DepotWeekCover" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsIncludeInDBR" Type="bit" Nullable="false" />
+          <Property Name="IsIncludeInDispatchPlan" Type="bit" Nullable="false" />
+          <Property Name="IsERPItem" Type="bit" Nullable="false" />
+          <Property Name="IsAdminUpdated" Type="bit" Nullable="false" />
+          <Property Name="StorageTankID" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="WeightTolerance_Min" Type="float" Nullable="false" />
+          <Property Name="WeightTolerance_Max" Type="float" Nullable="false" />
+          <Property Name="ProductNature" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="IsBackDateDispatchAllowed" Type="bit" Nullable="false" />
+          <Property Name="AverageRate" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblProductType">
+          <Key>
+            <PropertyRef Name="ProductTypeID" />
+          </Key>
+          <Property Name="ProductTypeID" Type="bigint" Nullable="false" />
+          <Property Name="ProductTypeRefNo" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="ProductTypeTitle" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Weight" Type="float" Nullable="false" />
+          <Property Name="CompanyID" Type="bigint" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblSupplier">
+          <Key>
+            <PropertyRef Name="SupplierID" />
+          </Key>
+          <Property Name="SupplierID" Type="bigint" Nullable="false" />
+          <Property Name="SupplierRefNo" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="SupplierTitle" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="OldCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CompanyID" Type="bigint" Nullable="false" />
+          <Property Name="Address1" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Address2" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="TelNo" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="FaxNo" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="WebSite" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblTransporter">
+          <Key>
+            <PropertyRef Name="TransporterID" />
+          </Key>
+          <Property Name="TransporterID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TransporterRefNo" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="OldCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TransporterTitle" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="TransporterType" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="TotalVehicles" Type="int" Nullable="false" />
+          <Property Name="Address1" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Address2" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="TelNo" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="FaxNo" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="WebSite" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="PreferenceNo" Type="int" Nullable="false" />
+          <Property Name="CompanyID" Type="bigint" Nullable="false" />
+          <Property Name="IsActive" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblUOM">
+          <Key>
+            <PropertyRef Name="UOMID" />
+          </Key>
+          <Property Name="UOMID" Type="bigint" Nullable="false" />
+          <Property Name="UOMRefNo" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="UOMTitle" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="CompanyID" Type="bigint" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblVehicle">
+          <Key>
+            <PropertyRef Name="VehicleID" />
+          </Key>
+          <Property Name="VehicleID" Type="bigint" Nullable="false" />
+          <Property Name="VehicleRefNo" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="OldCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="VehicleTitle" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="BranchID" Type="bigint" Nullable="false" />
+          <Property Name="VehicleNatureID" Type="bigint" Nullable="false" />
+          <Property Name="VehicleTypeID" Type="bigint" Nullable="false" />
+          <Property Name="MinimumWeightForPayable" Type="float" Nullable="false" />
+          <Property Name="VehicleCategoryID" Type="bigint" Nullable="false" />
+          <Property Name="TransporterID" Type="bigint" Nullable="false" />
+          <Property Name="Length" Type="float" Nullable="false" />
+          <Property Name="Width" Type="float" Nullable="false" />
+          <Property Name="Height" Type="float" Nullable="false" />
+          <Property Name="Capacity" Type="float" Nullable="false" />
+          <Property Name="Wheels" Type="int" Nullable="false" />
+          <Property Name="Axle" Type="int" Nullable="false" />
+          <Property Name="MfgYear" Type="int" Nullable="false" />
+          <Property Name="Priority" Type="int" Nullable="false" />
+          <Property Name="PreferenceNo" Type="int" Nullable="false" />
+          <Property Name="MinumumLoadInTon" Type="float" Nullable="false" />
+          <Property Name="MaximumLoadInTon" Type="float" Nullable="false" />
+          <Property Name="CompanyID" Type="bigint" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="TranType" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="VehicleNo" Type="varchar" MaxLength="40" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblVehicleEntryDetailProduct">
+          <Key>
+            <PropertyRef Name="TranDtlID" />
+          </Key>
+          <Property Name="TranDtlID" Type="bigint" Nullable="false" />
+          <Property Name="TranID" Type="bigint" Nullable="false" />
+          <Property Name="CompanyID" Type="bigint" Nullable="false" />
+          <Property Name="ProductID" Type="bigint" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Quantity" Type="float" Nullable="false" />
+          <Property Name="UOMID" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblVehicleEntryHead">
+          <Key>
+            <PropertyRef Name="TranID" />
+          </Key>
+          <Property Name="TranID" Type="bigint" Nullable="false" />
+          <Property Name="TranDate" Type="datetime" Nullable="false" />
+          <Property Name="TransactionID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="TransactionDate" Type="datetime" />
+          <Property Name="CompanyID" Type="bigint" />
+          <Property Name="BranchID" Type="bigint" />
+          <Property Name="TranType" Type="char" MaxLength="15" />
+          <Property Name="VehicleEntryMode" Type="char" MaxLength="20" />
+          <Property Name="VehicleNatureID" Type="bigint" />
+          <Property Name="VehicleID" Type="bigint" />
+          <Property Name="VehicleNo" Type="varchar" MaxLength="40" />
+          <Property Name="TransporterID" Type="bigint" />
+          <Property Name="DriverID" Type="bigint" />
+          <Property Name="NIC" Type="varchar" MaxLength="50" />
+          <Property Name="RFCardID" Type="bigint" />
+          <Property Name="PartyType" Type="char" MaxLength="20" />
+          <Property Name="PartyID" Type="bigint" />
+          <Property Name="PartyDescription" Type="varchar" MaxLength="100" />
+          <Property Name="PartyPONo" Type="varchar" MaxLength="40" />
+          <Property Name="PartyPODate" Type="datetime" />
+          <Property Name="PartyNetWeightInKg" Type="float" />
+          <Property Name="DocNo" Type="varchar" MaxLength="50" />
+          <Property Name="DocDate" Type="datetime" />
+          <Property Name="AdditionalWeightInKg" Type="float" />
+          <Property Name="SampleNo" Type="varchar" MaxLength="50" />
+          <Property Name="AdditionalFreight" Type="float" />
+          <Property Name="EntryStatus" Type="char" MaxLength="15" />
+          <Property Name="CreationDate" Type="datetime" />
+          <Property Name="CreationTime" Type="char" MaxLength="10" />
+          <Property Name="CloseDate" Type="datetime" />
+          <Property Name="CloseTime" Type="char" MaxLength="10" />
+          <Property Name="ShipmentDocumentNo" Type="varchar" MaxLength="50" />
+          <Property Name="ShipmentDocumentDate" Type="datetime" />
+          <Property Name="ShipmentRemarks1" Type="varchar" MaxLength="50" />
+          <Property Name="ShipmentRemarks2" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblVehicleNature">
+          <Key>
+            <PropertyRef Name="VehicleNatureID" />
+          </Key>
+          <Property Name="VehicleNatureID" Type="bigint" Nullable="false" />
+          <Property Name="VehicleNatureRefNo" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="VehicleNatureOldRefNo" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="VehicleNatureTitle" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CompanyID" Type="bigint" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="VehicleNatureType" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="IsQCRequired" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="User Id" />
+          </Key>
+          <Property Name="User Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="First Name" Type="varchar" MaxLength="50" />
+          <Property Name="Last Name" Type="varchar" MaxLength="50" />
+          <Property Name="User Name" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Contact Number" Type="varchar" MaxLength="50" />
+          <Property Name="Branch Id" Type="int" />
+        </EntityType>
+        <EntityType Name="UserLogs">
+          <Key>
+            <PropertyRef Name="Log Id" />
+          </Key>
+          <Property Name="Log Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="User Id" Type="int" />
+          <Property Name="User name" Type="varchar" MaxLength="50" />
+          <Property Name="Login Time" Type="datetime" />
+          <Property Name="Logout Time" Type="datetime" />
+          <Property Name="Host Name" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <Function Name="SP_DeviceLocate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserName" Type="varchar" Mode="In" />
+          <Parameter Name="ProcessType" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SP_DeviceLocation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserName" Type="varchar" Mode="In" />
+          <Parameter Name="ProcessType" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SP_DriverList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_GetVehicleDetailByQR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="QrCode" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SP_InBound" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TranID" Type="bigint" Mode="In" />
+          <Parameter Name="TransactionDate" Type="date" Mode="In" />
+          <Parameter Name="TranType" Type="char" Mode="In" />
+          <Parameter Name="VehicleEntryMode" Type="char" Mode="In" />
+          <Parameter Name="VehicleNatureID" Type="bigint" Mode="In" />
+          <Parameter Name="VehicleID" Type="bigint" Mode="In" />
+          <Parameter Name="VehicleNo" Type="varchar" Mode="In" />
+          <Parameter Name="TransporterID" Type="bigint" Mode="In" />
+          <Parameter Name="DriverID" Type="bigint" Mode="In" />
+          <Parameter Name="NIC" Type="varchar" Mode="In" />
+          <Parameter Name="RFCardID" Type="bigint" Mode="In" />
+          <Parameter Name="PartyType" Type="char" Mode="In" />
+          <Parameter Name="PartyDescription" Type="varchar" Mode="In" />
+          <Parameter Name="PartyPONo" Type="varchar" Mode="In" />
+          <Parameter Name="PartyPODate" Type="datetime" Mode="In" />
+          <Parameter Name="DocNo" Type="varchar" Mode="In" />
+          <Parameter Name="DocDate" Type="datetime" Mode="In" />
+          <Parameter Name="EntryStatus" Type="char" Mode="In" />
+          <Parameter Name="ShipmentDocumentNo" Type="varchar" Mode="In" />
+          <Parameter Name="ShipmentDocumentDate" Type="datetime" Mode="In" />
+          <Parameter Name="ShipmentRemarks1" Type="varchar" Mode="In" />
+          <Parameter Name="ShipmentRemarks2" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SP_INSERT_New_Vehicles" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="VehicleID" Type="bigint" Mode="In" />
+          <Parameter Name="VehicleRefNo" Type="varchar" Mode="In" />
+          <Parameter Name="OldCode" Type="varchar" Mode="In" />
+          <Parameter Name="VehicleTitle" Type="varchar" Mode="In" />
+          <Parameter Name="BranchID" Type="bigint" Mode="In" />
+          <Parameter Name="VehicleNatureID" Type="bigint" Mode="In" />
+          <Parameter Name="VehicleTypeID" Type="bigint" Mode="In" />
+          <Parameter Name="MinimumWeightForPayable" Type="float" Mode="In" />
+          <Parameter Name="VehicleCategoryID" Type="bigint" Mode="In" />
+          <Parameter Name="TransporterID" Type="bigint" Mode="In" />
+          <Parameter Name="Length" Type="float" Mode="In" />
+          <Parameter Name="Width" Type="float" Mode="In" />
+          <Parameter Name="Height" Type="float" Mode="In" />
+          <Parameter Name="Capacity" Type="float" Mode="In" />
+          <Parameter Name="Wheels" Type="int" Mode="In" />
+          <Parameter Name="Axle" Type="int" Mode="In" />
+          <Parameter Name="MfgYear" Type="int" Mode="In" />
+          <Parameter Name="Priority" Type="int" Mode="In" />
+          <Parameter Name="PreferenceNo" Type="int" Mode="In" />
+          <Parameter Name="MinumumLoadInTon" Type="float" Mode="In" />
+          <Parameter Name="MaximumLoadInTon" Type="float" Mode="In" />
+          <Parameter Name="CompanyID" Type="bigint" Mode="In" />
+          <Parameter Name="tranType" Type="char" Mode="In" />
+          <Parameter Name="VehicleNo" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SP_InsertActivityLog" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="QRCodeNo" Type="varchar" Mode="In" />
+          <Parameter Name="ActivityType" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SP_InsertDetailsDriver" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DriverRefNo" Type="varchar" Mode="In" />
+          <Parameter Name="DriverTitle" Type="varchar" Mode="In" />
+          <Parameter Name="TransporterID" Type="bigint" Mode="In" />
+          <Parameter Name="NIC" Type="varchar" Mode="In" />
+          <Parameter Name="TelNo" Type="varchar" Mode="In" />
+          <Parameter Name="MobileNo" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SP_InsertLoadingActivity" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DateTime" Type="varchar" Mode="In" />
+          <Parameter Name="QRCodeNo" Type="varchar" Mode="In" />
+          <Parameter Name="ActivityType" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Sp_InsertTransport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TransporterRefNo" Type="varchar" Mode="In" />
+          <Parameter Name="OldCode" Type="varchar" Mode="In" />
+          <Parameter Name="TransporterTitle" Type="varchar" Mode="In" />
+          <Parameter Name="TransporterType" Type="varchar" Mode="In" />
+          <Parameter Name="TotalVehicles" Type="int" Mode="In" />
+          <Parameter Name="Address1" Type="varchar" Mode="In" />
+          <Parameter Name="Address2" Type="varchar" Mode="In" />
+          <Parameter Name="TelNo" Type="varchar" Mode="In" />
+          <Parameter Name="FaxNo" Type="varchar" Mode="In" />
+          <Parameter Name="Email" Type="varchar" Mode="In" />
+          <Parameter Name="WebSite" Type="varchar" Mode="In" />
+          <Parameter Name="PreferenceNo" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_InsertWeight" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="VehicleNo" Type="varchar" Mode="In" />
+          <Parameter Name="QrCode" Type="varchar" Mode="In" />
+          <Parameter Name="WeighmentDetails" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SP_MfgYearList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_OutBound" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_SelectProductList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_SelectSelectDriver" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_SelectUOMList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_SelectVehicles" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_ShipmentDocNo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_TransporterList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Sp_VehichleDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Sp_VehichleInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_VehicleInMainGateINOUT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="VehicleNo" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SP_VehicleNatureType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_VehicleQRCode" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="DFLDBModelStoreContainer">
+          <EntitySet Name="ActivityLog" EntityType="Self.ActivityLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DeviceLocation" EntityType="Self.DeviceLocation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="table_MainGate" EntityType="Self.table_MainGate" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Driver" EntityType="Self.tbl_Driver" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCustomer" EntityType="Self.tblCustomer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblProduct" EntityType="Self.tblProduct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblProductType" EntityType="Self.tblProductType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblSupplier" EntityType="Self.tblSupplier" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblTransporter" EntityType="Self.tblTransporter" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblUOM" EntityType="Self.tblUOM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblVehicle" EntityType="Self.tblVehicle" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblVehicleEntryDetailProduct" EntityType="Self.tblVehicleEntryDetailProduct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblVehicleEntryHead" EntityType="Self.tblVehicleEntryHead" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblVehicleNature" EntityType="Self.tblVehicleNature" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserLogs" EntityType="Self.UserLogs" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DFLDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ActivityLog">
+          <Key>
+            <PropertyRef Name="DocId" />
+          </Key>
+          <Property Name="DocId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="Time" Type="Time" Precision="7" />
+          <Property Name="QRCodeNo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ActivityType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="DeviceLocation">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Branch" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Location" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="ProcessType" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="DeviceId" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="DeviceName" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="table_MainGate">
+          <Key>
+            <PropertyRef Name="TranID" />
+            <PropertyRef Name="TransactionID" />
+            <PropertyRef Name="PONumber" />
+            <PropertyRef Name="DocNo" />
+          </Key>
+          <Property Name="TranID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TransactionID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PONumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DocNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Dispatch_Others" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="VehicleEntryFor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TransactionDate" Type="DateTime" Precision="0" />
+          <Property Name="Depot" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DocDate" Type="DateTime" Precision="0" />
+          <Property Name="PartyType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PODate" Type="DateTime" Precision="0" />
+          <Property Name="PartyDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Product" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PhysicalQuantity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UOM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ShipmentDcoumentNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ShipmentDocumentDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ShipmentRemarks1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ShipmentRemarks2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_Driver">
+          <Key>
+            <PropertyRef Name="DriverID" />
+          </Key>
+          <Property Name="DriverID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DriverRefNo" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DriverTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TransporterID" Type="Int64" Nullable="false" />
+          <Property Name="NIC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TelNo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MobileNo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CompanyID" Type="Int64" Nullable="false" />
+          <Property Name="IsActive" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblCustomer">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="Int64" Nullable="false" />
+          <Property Name="CustomerRefNo" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CustomerTitle" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CompanyID" Type="Int64" Nullable="false" />
+          <Property Name="ParentCustomerID" Type="Int64" Nullable="false" />
+          <Property Name="CustomerCategoryID" Type="Int64" Nullable="false" />
+          <Property Name="CustomerTypeID" Type="Int64" Nullable="false" />
+          <Property Name="Address1" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Address2" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BranchID" Type="Int64" Nullable="false" />
+          <Property Name="NationalID" Type="Int64" Nullable="false" />
+          <Property Name="RegionID" Type="Int64" Nullable="false" />
+          <Property Name="AreaID" Type="Int64" Nullable="false" />
+          <Property Name="TerritoryID" Type="Int64" Nullable="false" />
+          <Property Name="TownID" Type="Int64" Nullable="false" />
+          <Property Name="RouteID" Type="Int64" Nullable="false" />
+          <Property Name="TelNo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FaxNo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OwnerName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ModeOfPaymentID" Type="Int64" Nullable="false" />
+          <Property Name="GSTNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NTNNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsBlock" Type="Boolean" Nullable="false" />
+          <Property Name="IsDoubleTripAllowed" Type="Boolean" Nullable="false" />
+          <Property Name="IsLooseProductCustomer" Type="Boolean" Nullable="false" />
+          <Property Name="IsPONumberRequired" Type="Boolean" Nullable="false" />
+          <Property Name="IsResigned" Type="Boolean" Nullable="false" />
+          <Property Name="IsMonOff" Type="Boolean" Nullable="false" />
+          <Property Name="IsTueOff" Type="Boolean" Nullable="false" />
+          <Property Name="IsWedOff" Type="Boolean" Nullable="false" />
+          <Property Name="IsThuOff" Type="Boolean" Nullable="false" />
+          <Property Name="IsFriOff" Type="Boolean" Nullable="false" />
+          <Property Name="IsSatOff" Type="Boolean" Nullable="false" />
+          <Property Name="IsSunOff" Type="Boolean" Nullable="false" />
+          <Property Name="OpenTime" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CloseTime" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="IsMonDispatch" Type="Boolean" Nullable="false" />
+          <Property Name="IsTueDispatch" Type="Boolean" Nullable="false" />
+          <Property Name="IsWedDispatch" Type="Boolean" Nullable="false" />
+          <Property Name="IsThuDispatch" Type="Boolean" Nullable="false" />
+          <Property Name="IsFriDispatch" Type="Boolean" Nullable="false" />
+          <Property Name="IsSatDispatch" Type="Boolean" Nullable="false" />
+          <Property Name="IsSunDispatch" Type="Boolean" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="IsAdminUpdated" Type="Boolean" Nullable="false" />
+          <Property Name="IsSubDistributer" Type="Boolean" Nullable="false" />
+          <Property Name="CreditDays" Type="Int32" Nullable="false" />
+          <Property Name="CreditLimit" Type="Double" Nullable="false" />
+          <Property Name="IsPaymentInfoReqOnDO" Type="Boolean" Nullable="false" />
+          <Property Name="BusinessUnitID" Type="Int64" Nullable="false" />
+          <Property Name="ElinkCustomerRefNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblProduct">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="Int64" Nullable="false" />
+          <Property Name="ProductRefNo" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProductTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CompanyID" Type="Int64" Nullable="false" />
+          <Property Name="BusinessUnitID" Type="Int64" Nullable="false" />
+          <Property Name="ProductClassID" Type="Int64" Nullable="false" />
+          <Property Name="ProductBrandID" Type="Int64" Nullable="false" />
+          <Property Name="ProductPackagingID" Type="Int64" Nullable="false" />
+          <Property Name="ProductCategoryID" Type="Int64" Nullable="false" />
+          <Property Name="ProductTypeID" Type="Int64" Nullable="false" />
+          <Property Name="ProductNatureID" Type="Int64" Nullable="false" />
+          <Property Name="ExtProdGroupID" Type="Int64" Nullable="false" />
+          <Property Name="NetWeight" Type="Double" Nullable="false" />
+          <Property Name="GrossWeight" Type="Double" Nullable="false" />
+          <Property Name="UOMID" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Length" Type="Double" Nullable="false" />
+          <Property Name="Width" Type="Double" Nullable="false" />
+          <Property Name="Height" Type="Double" Nullable="false" />
+          <Property Name="TaxCategoryID" Type="Int64" Nullable="false" />
+          <Property Name="IsTaxable" Type="Boolean" Nullable="false" />
+          <Property Name="PcsPerBox" Type="Double" Nullable="false" />
+          <Property Name="BoxPerCarton" Type="Double" Nullable="false" />
+          <Property Name="ExpiryAgeMonths" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="IsFinish" Type="Boolean" Nullable="false" />
+          <Property Name="IsLoose" Type="Boolean" Nullable="false" />
+          <Property Name="IsCP" Type="Boolean" Nullable="false" />
+          <Property Name="NationWeekCover" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DepotWeekCover" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsIncludeInDBR" Type="Boolean" Nullable="false" />
+          <Property Name="IsIncludeInDispatchPlan" Type="Boolean" Nullable="false" />
+          <Property Name="IsERPItem" Type="Boolean" Nullable="false" />
+          <Property Name="IsAdminUpdated" Type="Boolean" Nullable="false" />
+          <Property Name="StorageTankID" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="WeightTolerance_Min" Type="Double" Nullable="false" />
+          <Property Name="WeightTolerance_Max" Type="Double" Nullable="false" />
+          <Property Name="ProductNature" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="IsBackDateDispatchAllowed" Type="Boolean" Nullable="false" />
+          <Property Name="AverageRate" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblProductType">
+          <Key>
+            <PropertyRef Name="ProductTypeID" />
+          </Key>
+          <Property Name="ProductTypeID" Type="Int64" Nullable="false" />
+          <Property Name="ProductTypeRefNo" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProductTypeTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Weight" Type="Double" Nullable="false" />
+          <Property Name="CompanyID" Type="Int64" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblSupplier">
+          <Key>
+            <PropertyRef Name="SupplierID" />
+          </Key>
+          <Property Name="SupplierID" Type="Int64" Nullable="false" />
+          <Property Name="SupplierRefNo" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SupplierTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OldCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CompanyID" Type="Int64" Nullable="false" />
+          <Property Name="Address1" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Address2" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TelNo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FaxNo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="WebSite" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblTransporter">
+          <Key>
+            <PropertyRef Name="TransporterID" />
+          </Key>
+          <Property Name="TransporterID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TransporterRefNo" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OldCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TransporterTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TransporterType" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TotalVehicles" Type="Int32" Nullable="false" />
+          <Property Name="Address1" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Address2" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TelNo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FaxNo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="WebSite" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PreferenceNo" Type="Int32" Nullable="false" />
+          <Property Name="CompanyID" Type="Int64" Nullable="false" />
+          <Property Name="IsActive" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblUOM">
+          <Key>
+            <PropertyRef Name="UOMID" />
+          </Key>
+          <Property Name="UOMID" Type="Int64" Nullable="false" />
+          <Property Name="UOMRefNo" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UOMTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CompanyID" Type="Int64" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblVehicle">
+          <Key>
+            <PropertyRef Name="VehicleID" />
+          </Key>
+          <Property Name="VehicleID" Type="Int64" Nullable="false" />
+          <Property Name="VehicleRefNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OldCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="VehicleTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BranchID" Type="Int64" Nullable="false" />
+          <Property Name="VehicleNatureID" Type="Int64" Nullable="false" />
+          <Property Name="VehicleTypeID" Type="Int64" Nullable="false" />
+          <Property Name="MinimumWeightForPayable" Type="Double" Nullable="false" />
+          <Property Name="VehicleCategoryID" Type="Int64" Nullable="false" />
+          <Property Name="TransporterID" Type="Int64" Nullable="false" />
+          <Property Name="Length" Type="Double" Nullable="false" />
+          <Property Name="Width" Type="Double" Nullable="false" />
+          <Property Name="Height" Type="Double" Nullable="false" />
+          <Property Name="Capacity" Type="Double" Nullable="false" />
+          <Property Name="Wheels" Type="Int32" Nullable="false" />
+          <Property Name="Axle" Type="Int32" Nullable="false" />
+          <Property Name="MfgYear" Type="Int32" Nullable="false" />
+          <Property Name="Priority" Type="Int32" Nullable="false" />
+          <Property Name="PreferenceNo" Type="Int32" Nullable="false" />
+          <Property Name="MinumumLoadInTon" Type="Double" Nullable="false" />
+          <Property Name="MaximumLoadInTon" Type="Double" Nullable="false" />
+          <Property Name="CompanyID" Type="Int64" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="TranType" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="VehicleNo" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblVehicleEntryDetailProduct">
+          <Key>
+            <PropertyRef Name="TranDtlID" />
+          </Key>
+          <Property Name="TranDtlID" Type="Int64" Nullable="false" />
+          <Property Name="TranID" Type="Int64" Nullable="false" />
+          <Property Name="CompanyID" Type="Int64" Nullable="false" />
+          <Property Name="ProductID" Type="Int64" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Quantity" Type="Double" Nullable="false" />
+          <Property Name="UOMID" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblVehicleEntryHead">
+          <Key>
+            <PropertyRef Name="TranID" />
+          </Key>
+          <Property Name="TranID" Type="Int64" Nullable="false" />
+          <Property Name="TranDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TransactionID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TransactionDate" Type="DateTime" Precision="3" />
+          <Property Name="CompanyID" Type="Int64" />
+          <Property Name="BranchID" Type="Int64" />
+          <Property Name="TranType" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
+          <Property Name="VehicleEntryMode" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="VehicleNatureID" Type="Int64" />
+          <Property Name="VehicleID" Type="Int64" />
+          <Property Name="VehicleNo" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="TransporterID" Type="Int64" />
+          <Property Name="DriverID" Type="Int64" />
+          <Property Name="NIC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RFCardID" Type="Int64" />
+          <Property Name="PartyType" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="PartyID" Type="Int64" />
+          <Property Name="PartyDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PartyPONo" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="PartyPODate" Type="DateTime" Precision="3" />
+          <Property Name="PartyNetWeightInKg" Type="Double" />
+          <Property Name="DocNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DocDate" Type="DateTime" Precision="3" />
+          <Property Name="AdditionalWeightInKg" Type="Double" />
+          <Property Name="SampleNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AdditionalFreight" Type="Double" />
+          <Property Name="EntryStatus" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
+          <Property Name="CreationDate" Type="DateTime" Precision="3" />
+          <Property Name="CreationTime" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="CloseDate" Type="DateTime" Precision="3" />
+          <Property Name="CloseTime" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="ShipmentDocumentNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ShipmentDocumentDate" Type="DateTime" Precision="3" />
+          <Property Name="ShipmentRemarks1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ShipmentRemarks2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tblVehicleNature">
+          <Key>
+            <PropertyRef Name="VehicleNatureID" />
+          </Key>
+          <Property Name="VehicleNatureID" Type="Int64" Nullable="false" />
+          <Property Name="VehicleNatureRefNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="VehicleNatureOldRefNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="VehicleNatureTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CompanyID" Type="Int64" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="VehicleNatureType" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsQCRequired" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserLog">
+          <Key>
+            <PropertyRef Name="Log_Id" />
+          </Key>
+          <Property Name="Log_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="User_Id" Type="Int32" />
+          <Property Name="User_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Login_Time" Type="DateTime" Precision="3" />
+          <Property Name="Logout_Time" Type="DateTime" Precision="3" />
+          <Property Name="Host_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="User_Id" />
+          </Key>
+          <Property Name="User_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="First_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="User_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Contact_Number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Branch_Id" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="DFLDBEntiti" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ActivityLogs" EntityType="Self.ActivityLog" />
+          <EntitySet Name="DeviceLocations" EntityType="Self.DeviceLocation" />
+          <EntitySet Name="table_MainGate" EntityType="Self.table_MainGate" />
+          <EntitySet Name="tbl_Driver" EntityType="Self.tbl_Driver" />
+          <EntitySet Name="tblCustomers" EntityType="Self.tblCustomer" />
+          <EntitySet Name="tblProducts" EntityType="Self.tblProduct" />
+          <EntitySet Name="tblProductTypes" EntityType="Self.tblProductType" />
+          <EntitySet Name="tblSuppliers" EntityType="Self.tblSupplier" />
+          <EntitySet Name="tblTransporters" EntityType="Self.tblTransporter" />
+          <EntitySet Name="tblUOMs" EntityType="Self.tblUOM" />
+          <EntitySet Name="tblVehicles" EntityType="Self.tblVehicle" />
+          <EntitySet Name="tblVehicleEntryDetailProducts" EntityType="Self.tblVehicleEntryDetailProduct" />
+          <EntitySet Name="tblVehicleEntryHeads" EntityType="Self.tblVehicleEntryHead" />
+          <EntitySet Name="tblVehicleNatures" EntityType="Self.tblVehicleNature" />
+          <EntitySet Name="UserLogs" EntityType="Self.UserLog" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <FunctionImport Name="SP_DeviceLocation">
+            <Parameter Name="UserName" Mode="In" Type="String" />
+            <Parameter Name="ProcessType" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_DriverList" ReturnType="Collection(DFLDBModel.SP_DriverList_Result)" />
+          <FunctionImport Name="SP_GetVehicleDetailByQR" ReturnType="Collection(DFLDBModel.SP_GetVehicleDetailByQR_Result)">
+          <Parameter Name="QrCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_InBound" ReturnType="Collection(DFLDBModel.SP_InBound_Result)" />
+          <FunctionImport Name="SP_Insert">
+            <Parameter Name="TranID" Mode="In" Type="Int64" />
+            <Parameter Name="TransactionDate" Mode="In" Type="DateTime" />
+            <Parameter Name="TranType" Mode="In" Type="String" />
+            <Parameter Name="VehicleEntryMode" Mode="In" Type="String" />
+            <Parameter Name="VehicleNatureID" Mode="In" Type="Int64" />
+            <Parameter Name="VehicleID" Mode="In" Type="Int64" />
+            <Parameter Name="VehicleNo" Mode="In" Type="String" />
+            <Parameter Name="TransporterID" Mode="In" Type="Int64" />
+            <Parameter Name="DriverID" Mode="In" Type="Int64" />
+            <Parameter Name="NIC" Mode="In" Type="String" />
+            <Parameter Name="RFCardID" Mode="In" Type="Int64" />
+            <Parameter Name="PartyType" Mode="In" Type="String" />
+            <Parameter Name="PartyDescription" Mode="In" Type="String" />
+            <Parameter Name="PartyPONo" Mode="In" Type="String" />
+            <Parameter Name="PartyPODate" Mode="In" Type="DateTime" />
+            <Parameter Name="DocNo" Mode="In" Type="String" />
+            <Parameter Name="DocDate" Mode="In" Type="DateTime" />
+            <Parameter Name="EntryStatus" Mode="In" Type="String" />
+            <Parameter Name="ShipmentDocumentNo" Mode="In" Type="String" />
+            <Parameter Name="ShipmentDocumentDate" Mode="In" Type="DateTime" />
+            <Parameter Name="ShipmentRemarks1" Mode="In" Type="String" />
+            <Parameter Name="ShipmentRemarks2" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_INSERT_New_Vehicles">
+            <Parameter Name="VehicleID" Mode="In" Type="Int64" />
+            <Parameter Name="VehicleRefNo" Mode="In" Type="String" />
+            <Parameter Name="OldCode" Mode="In" Type="String" />
+            <Parameter Name="VehicleTitle" Mode="In" Type="String" />
+            <Parameter Name="BranchID" Mode="In" Type="Int64" />
+            <Parameter Name="VehicleNatureID" Mode="In" Type="Int64" />
+            <Parameter Name="VehicleTypeID" Mode="In" Type="Int64" />
+            <Parameter Name="MinimumWeightForPayable" Mode="In" Type="Double" />
+            <Parameter Name="VehicleCategoryID" Mode="In" Type="Int64" />
+            <Parameter Name="TransporterID" Mode="In" Type="Int64" />
+            <Parameter Name="Length" Mode="In" Type="Double" />
+            <Parameter Name="Width" Mode="In" Type="Double" />
+            <Parameter Name="Height" Mode="In" Type="Double" />
+            <Parameter Name="Capacity" Mode="In" Type="Double" />
+            <Parameter Name="Wheels" Mode="In" Type="Int32" />
+            <Parameter Name="Axle" Mode="In" Type="Int32" />
+            <Parameter Name="MfgYear" Mode="In" Type="Int32" />
+            <Parameter Name="Priority" Mode="In" Type="Int32" />
+            <Parameter Name="PreferenceNo" Mode="In" Type="Int32" />
+            <Parameter Name="MinumumLoadInTon" Mode="In" Type="Double" />
+            <Parameter Name="MaximumLoadInTon" Mode="In" Type="Double" />
+            <Parameter Name="CompanyID" Mode="In" Type="Int64" />
+            <Parameter Name="tranType" Mode="In" Type="String" />
+            <Parameter Name="VehicleNo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_InsertActivityLog">
+            <Parameter Name="QRCodeNo" Mode="In" Type="String" />
+            <Parameter Name="ActivityType" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_InsertDetailsDriver">
+            <Parameter Name="DriverRefNo" Mode="In" Type="String" />
+            <Parameter Name="DriverTitle" Mode="In" Type="String" />
+            <Parameter Name="TransporterID" Mode="In" Type="Int64" />
+            <Parameter Name="NIC" Mode="In" Type="String" />
+            <Parameter Name="TelNo" Mode="In" Type="String" />
+            <Parameter Name="MobileNo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_InsertLoadingActivity">
+            <Parameter Name="DateTime" Mode="In" Type="String" />
+            <Parameter Name="QRCodeNo" Mode="In" Type="String" />
+            <Parameter Name="ActivityType" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Sp_InsertTransport">
+            <Parameter Name="TransporterRefNo" Mode="In" Type="String" />
+            <Parameter Name="OldCode" Mode="In" Type="String" />
+            <Parameter Name="TransporterTitle" Mode="In" Type="String" />
+            <Parameter Name="TransporterType" Mode="In" Type="String" />
+            <Parameter Name="TotalVehicles" Mode="In" Type="Int32" />
+            <Parameter Name="Address1" Mode="In" Type="String" />
+            <Parameter Name="Address2" Mode="In" Type="String" />
+            <Parameter Name="TelNo" Mode="In" Type="String" />
+            <Parameter Name="FaxNo" Mode="In" Type="String" />
+            <Parameter Name="Email" Mode="In" Type="String" />
+            <Parameter Name="WebSite" Mode="In" Type="String" />
+            <Parameter Name="PreferenceNo" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_InsertWeight">
+            <Parameter Name="VehicleNo" Mode="In" Type="String" />
+            <Parameter Name="QrCode" Mode="In" Type="String" />
+            <Parameter Name="WeighmentDetails" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_MfgYearList" ReturnType="Collection(Int32)" />
+          <FunctionImport Name="SP_OutBound" ReturnType="Collection(DFLDBModel.SP_OutBound_Result)" />
+          <FunctionImport Name="SP_SelectProductList" ReturnType="Collection(String)" />
+          <FunctionImport Name="SP_SelectSelectDriver" ReturnType="Collection(DFLDBModel.SP_SelectSelectDriver_Result)" />
+          <FunctionImport Name="SP_SelectUOMList" ReturnType="Collection(String)" />
+          <FunctionImport Name="SP_SelectVehicles" ReturnType="Collection(DFLDBModel.SP_SelectVehicles_Result)" />
+          <FunctionImport Name="SP_ShipmentDocNo" ReturnType="Collection(String)" />
+          <FunctionImport Name="SP_TransporterList" ReturnType="Collection(String)" />
+          <FunctionImport Name="Sp_VehichleDetail" ReturnType="Collection(DFLDBModel.Sp_VehichleDetail_Result)" />
+          <FunctionImport Name="Sp_VehichleInfo" ReturnType="Collection(DFLDBModel.Sp_VehichleInfo_Result)" />
+          <FunctionImport Name="SP_VehicleInMainGateINOUT" ReturnType="Collection(DFLDBModel.SP_VehicleInMainGateINOUT_Result)">
+          <Parameter Name="VehicleNo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_VehicleNatureType" ReturnType="Collection(DFLDBModel.SP_VehicleNatureType_Result)" />
+          <FunctionImport Name="SP_VehicleQRCode" ReturnType="Collection(DFLDBModel.SP_VehicleQRCode_Result)" />
+          <FunctionImport Name="SP_DeviceLocate" ReturnType="Collection(DFLDBModel.SP_DeviceLocate_Result)">
+            <Parameter Name="UserName" Mode="In" Type="String" />
+            <Parameter Name="ProcessType" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="SP_DriverList_Result">
+          <Property Type="String" Name="DriverRefNo" Nullable="false" MaxLength="5" />
+          <Property Type="String" Name="DriverTitle" Nullable="false" MaxLength="100" />
+          <Property Type="Int32" Name="IsActive" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="SP_GetVehicleDetailByQR_Result">
+          <Property Type="String" Name="VehicleNo" Nullable="true" MaxLength="40" />
+          <Property Type="DateTime" Name="Date" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="Time" Nullable="false" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="SP_InBound_Result">
+          <Property Type="String" Name="SupplierTitle" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Supplier_Description" Nullable="false" MaxLength="106" />
+        </ComplexType>
+        <ComplexType Name="SP_OutBound_Result">
+          <Property Type="String" Name="CustomerTitle" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="Customer_Description" Nullable="false" MaxLength="201" />
+        </ComplexType>
+        <ComplexType Name="SP_SelectSelectDriver_Result">
+          <Property Type="Int64" Name="DriverID" Nullable="false" />
+          <Property Type="String" Name="DriverRefNo" Nullable="false" MaxLength="5" />
+          <Property Type="String" Name="DriverTitle" Nullable="false" MaxLength="100" />
+          <Property Type="Int64" Name="TransporterID" Nullable="false" />
+          <Property Type="String" Name="NIC" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="TelNo" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="MobileNo" Nullable="false" MaxLength="100" />
+          <Property Type="Int64" Name="CompanyID" Nullable="false" />
+          <Property Type="Int32" Name="IsActive" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="SP_SelectVehicles_Result">
+          <Property Type="Int32" Name="MfgYear" Nullable="false" />
+          <Property Type="Int64" Name="VehicleID" Nullable="false" />
+          <Property Type="String" Name="VehicleNo" Nullable="false" MaxLength="40" />
+          <Property Type="String" Name="DriverTitle" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="NIC" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="TransporterTitle" Nullable="false" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="Sp_VehichleDetail_Result">
+          <Property Type="Int64" Name="VehicleID" Nullable="false" />
+          <Property Type="String" Name="VehicleRefNo" Nullable="false" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="Sp_VehichleInfo_Result">
+          <Property Type="String" Name="VehicleNo" Nullable="true" MaxLength="40" />
+          <Property Type="Int64" Name="VehicleID" Nullable="true" />
+          <Property Type="Int64" Name="RFCardID" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="SP_VehicleInMainGateINOUT_Result">
+          <Property Type="String" Name="TransporterTitle" Nullable="true" MaxLength="100" />
+          <Property Type="Int64" Name="DriverID" Nullable="true" />
+          <Property Type="Int64" Name="TransporterID" Nullable="true" />
+          <Property Type="Int64" Name="VehicleNatureID" Nullable="false" />
+          <Property Type="Int64" Name="VehicleID" Nullable="false" />
+          <Property Type="String" Name="VehicleNatureTitle" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="VehicleTitle" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="NIC" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="DriverTitle" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="SP_VehicleNatureType_Result">
+          <Property Type="Int64" Name="VehicleNatureID" Nullable="false" />
+          <Property Type="String" Name="VehicleNatureRefNo" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="VehicleNatureOldRefNo" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="VehicleNatureTitle" Nullable="false" MaxLength="50" />
+          <Property Type="Int64" Name="CompanyID" Nullable="false" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <Property Type="String" Name="VehicleNatureType" Nullable="false" MaxLength="3" />
+          <Property Type="Boolean" Name="IsQCRequired" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="SP_VehicleQRCode_Result">
+          <Property Type="Int64" Name="TranID" Nullable="false" />
+          <Property Type="DateTime" Name="TranDate" Nullable="false" Precision="23" />
+          <Property Type="String" Name="TransactionID" Nullable="false" MaxLength="20" />
+          <Property Type="DateTime" Name="TransactionDate" Nullable="true" Precision="23" />
+          <Property Type="Int64" Name="CompanyID" Nullable="true" />
+          <Property Type="Int64" Name="BranchID" Nullable="true" />
+          <Property Type="String" Name="TranType" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="VehicleEntryMode" Nullable="true" MaxLength="20" />
+          <Property Type="Int64" Name="VehicleNatureID" Nullable="true" />
+          <Property Type="Int64" Name="VehicleID" Nullable="true" />
+          <Property Type="String" Name="VehicleNo" Nullable="true" MaxLength="40" />
+          <Property Type="Int64" Name="TransporterID" Nullable="true" />
+          <Property Type="Int64" Name="DriverID" Nullable="true" />
+          <Property Type="String" Name="NIC" Nullable="true" MaxLength="50" />
+          <Property Type="Int64" Name="RFCardID" Nullable="true" />
+          <Property Type="String" Name="PartyType" Nullable="true" MaxLength="20" />
+          <Property Type="Int64" Name="PartyID" Nullable="true" />
+          <Property Type="String" Name="PartyDescription" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="PartyPONo" Nullable="true" MaxLength="40" />
+          <Property Type="DateTime" Name="PartyPODate" Nullable="true" Precision="23" />
+          <Property Type="Double" Name="PartyNetWeightInKg" Nullable="true" />
+          <Property Type="String" Name="DocNo" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="DocDate" Nullable="true" Precision="23" />
+          <Property Type="Double" Name="AdditionalWeightInKg" Nullable="true" />
+          <Property Type="String" Name="SampleNo" Nullable="true" MaxLength="50" />
+          <Property Type="Double" Name="AdditionalFreight" Nullable="true" />
+          <Property Type="String" Name="EntryStatus" Nullable="true" MaxLength="15" />
+          <Property Type="DateTime" Name="CreationDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="CreationTime" Nullable="true" MaxLength="10" />
+          <Property Type="DateTime" Name="CloseDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="CloseTime" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="ShipmentDocumentNo" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="ShipmentDocumentDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="ShipmentRemarks1" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="ShipmentRemarks2" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="SP_DeviceLocate_Result">
+          <Property Type="String" Name="DeviceName" Nullable="true" MaxLength="70" />
+          <Property Type="String" Name="OrderID" Nullable="false" MaxLength="3" />
+          <Property Type="DateTime" Name="ActivityDate" Nullable="false" Precision="23" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DFLDBModelStoreContainer" CdmEntityContainer="DFLDBEntiti">
+          <EntitySetMapping Name="ActivityLogs">
+            <EntityTypeMapping TypeName="DFLDBModel.ActivityLog">
+              <MappingFragment StoreEntitySet="ActivityLog">
+                <ScalarProperty Name="DocId" ColumnName="DocId" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="QRCodeNo" ColumnName="QRCodeNo" />
+                <ScalarProperty Name="ActivityType" ColumnName="ActivityType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DeviceLocations">
+            <EntityTypeMapping TypeName="DFLDBModel.DeviceLocation">
+              <MappingFragment StoreEntitySet="DeviceLocation">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Branch" ColumnName="Branch" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="ProcessType" ColumnName="ProcessType" />
+                <ScalarProperty Name="DeviceId" ColumnName="DeviceId" />
+                <ScalarProperty Name="DeviceName" ColumnName="DeviceName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="table_MainGate">
+            <EntityTypeMapping TypeName="DFLDBModel.table_MainGate">
+              <MappingFragment StoreEntitySet="table_MainGate">
+                <ScalarProperty Name="TranID" ColumnName="TranID" />
+                <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+                <ScalarProperty Name="PONumber" ColumnName="PONumber" />
+                <ScalarProperty Name="DocNo" ColumnName="DocNo" />
+                <ScalarProperty Name="Dispatch_Others" ColumnName="Dispatch/Others" />
+                <ScalarProperty Name="VehicleEntryFor" ColumnName="VehicleEntryFor" />
+                <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+                <ScalarProperty Name="Depot" ColumnName="Depot" />
+                <ScalarProperty Name="DocDate" ColumnName="DocDate" />
+                <ScalarProperty Name="PartyType" ColumnName="PartyType" />
+                <ScalarProperty Name="PODate" ColumnName="PODate" />
+                <ScalarProperty Name="PartyDescription" ColumnName="PartyDescription" />
+                <ScalarProperty Name="Product" ColumnName="Product" />
+                <ScalarProperty Name="PhysicalQuantity" ColumnName="PhysicalQuantity" />
+                <ScalarProperty Name="UOM" ColumnName="UOM" />
+                <ScalarProperty Name="ShipmentDcoumentNo" ColumnName="ShipmentDcoumentNo" />
+                <ScalarProperty Name="ShipmentDocumentDate" ColumnName="ShipmentDocumentDate" />
+                <ScalarProperty Name="ShipmentRemarks1" ColumnName="ShipmentRemarks1" />
+                <ScalarProperty Name="ShipmentRemarks2" ColumnName="ShipmentRemarks2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Driver">
+            <EntityTypeMapping TypeName="DFLDBModel.tbl_Driver">
+              <MappingFragment StoreEntitySet="tbl_Driver">
+                <ScalarProperty Name="DriverID" ColumnName="DriverID" />
+                <ScalarProperty Name="DriverRefNo" ColumnName="DriverRefNo" />
+                <ScalarProperty Name="DriverTitle" ColumnName="DriverTitle" />
+                <ScalarProperty Name="TransporterID" ColumnName="TransporterID" />
+                <ScalarProperty Name="NIC" ColumnName="NIC" />
+                <ScalarProperty Name="TelNo" ColumnName="TelNo" />
+                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCustomers">
+            <EntityTypeMapping TypeName="DFLDBModel.tblCustomer">
+              <MappingFragment StoreEntitySet="tblCustomer">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="CustomerRefNo" ColumnName="CustomerRefNo" />
+                <ScalarProperty Name="CustomerTitle" ColumnName="CustomerTitle" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="ParentCustomerID" ColumnName="ParentCustomerID" />
+                <ScalarProperty Name="CustomerCategoryID" ColumnName="CustomerCategoryID" />
+                <ScalarProperty Name="CustomerTypeID" ColumnName="CustomerTypeID" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="BranchID" ColumnName="BranchID" />
+                <ScalarProperty Name="NationalID" ColumnName="NationalID" />
+                <ScalarProperty Name="RegionID" ColumnName="RegionID" />
+                <ScalarProperty Name="AreaID" ColumnName="AreaID" />
+                <ScalarProperty Name="TerritoryID" ColumnName="TerritoryID" />
+                <ScalarProperty Name="TownID" ColumnName="TownID" />
+                <ScalarProperty Name="RouteID" ColumnName="RouteID" />
+                <ScalarProperty Name="TelNo" ColumnName="TelNo" />
+                <ScalarProperty Name="FaxNo" ColumnName="FaxNo" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="OwnerName" ColumnName="OwnerName" />
+                <ScalarProperty Name="ModeOfPaymentID" ColumnName="ModeOfPaymentID" />
+                <ScalarProperty Name="GSTNo" ColumnName="GSTNo" />
+                <ScalarProperty Name="NTNNo" ColumnName="NTNNo" />
+                <ScalarProperty Name="IsBlock" ColumnName="IsBlock" />
+                <ScalarProperty Name="IsDoubleTripAllowed" ColumnName="IsDoubleTripAllowed" />
+                <ScalarProperty Name="IsLooseProductCustomer" ColumnName="IsLooseProductCustomer" />
+                <ScalarProperty Name="IsPONumberRequired" ColumnName="IsPONumberRequired" />
+                <ScalarProperty Name="IsResigned" ColumnName="IsResigned" />
+                <ScalarProperty Name="IsMonOff" ColumnName="IsMonOff" />
+                <ScalarProperty Name="IsTueOff" ColumnName="IsTueOff" />
+                <ScalarProperty Name="IsWedOff" ColumnName="IsWedOff" />
+                <ScalarProperty Name="IsThuOff" ColumnName="IsThuOff" />
+                <ScalarProperty Name="IsFriOff" ColumnName="IsFriOff" />
+                <ScalarProperty Name="IsSatOff" ColumnName="IsSatOff" />
+                <ScalarProperty Name="IsSunOff" ColumnName="IsSunOff" />
+                <ScalarProperty Name="OpenTime" ColumnName="OpenTime" />
+                <ScalarProperty Name="CloseTime" ColumnName="CloseTime" />
+                <ScalarProperty Name="IsMonDispatch" ColumnName="IsMonDispatch" />
+                <ScalarProperty Name="IsTueDispatch" ColumnName="IsTueDispatch" />
+                <ScalarProperty Name="IsWedDispatch" ColumnName="IsWedDispatch" />
+                <ScalarProperty Name="IsThuDispatch" ColumnName="IsThuDispatch" />
+                <ScalarProperty Name="IsFriDispatch" ColumnName="IsFriDispatch" />
+                <ScalarProperty Name="IsSatDispatch" ColumnName="IsSatDispatch" />
+                <ScalarProperty Name="IsSunDispatch" ColumnName="IsSunDispatch" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsAdminUpdated" ColumnName="IsAdminUpdated" />
+                <ScalarProperty Name="IsSubDistributer" ColumnName="IsSubDistributer" />
+                <ScalarProperty Name="CreditDays" ColumnName="CreditDays" />
+                <ScalarProperty Name="CreditLimit" ColumnName="CreditLimit" />
+                <ScalarProperty Name="IsPaymentInfoReqOnDO" ColumnName="IsPaymentInfoReqOnDO" />
+                <ScalarProperty Name="BusinessUnitID" ColumnName="BusinessUnitID" />
+                <ScalarProperty Name="ElinkCustomerRefNo" ColumnName="ElinkCustomerRefNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblProducts">
+            <EntityTypeMapping TypeName="DFLDBModel.tblProduct">
+              <MappingFragment StoreEntitySet="tblProduct">
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="ProductRefNo" ColumnName="ProductRefNo" />
+                <ScalarProperty Name="ProductTitle" ColumnName="ProductTitle" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="BusinessUnitID" ColumnName="BusinessUnitID" />
+                <ScalarProperty Name="ProductClassID" ColumnName="ProductClassID" />
+                <ScalarProperty Name="ProductBrandID" ColumnName="ProductBrandID" />
+                <ScalarProperty Name="ProductPackagingID" ColumnName="ProductPackagingID" />
+                <ScalarProperty Name="ProductCategoryID" ColumnName="ProductCategoryID" />
+                <ScalarProperty Name="ProductTypeID" ColumnName="ProductTypeID" />
+                <ScalarProperty Name="ProductNatureID" ColumnName="ProductNatureID" />
+                <ScalarProperty Name="ExtProdGroupID" ColumnName="ExtProdGroupID" />
+                <ScalarProperty Name="NetWeight" ColumnName="NetWeight" />
+                <ScalarProperty Name="GrossWeight" ColumnName="GrossWeight" />
+                <ScalarProperty Name="UOMID" ColumnName="UOMID" />
+                <ScalarProperty Name="Length" ColumnName="Length" />
+                <ScalarProperty Name="Width" ColumnName="Width" />
+                <ScalarProperty Name="Height" ColumnName="Height" />
+                <ScalarProperty Name="TaxCategoryID" ColumnName="TaxCategoryID" />
+                <ScalarProperty Name="IsTaxable" ColumnName="IsTaxable" />
+                <ScalarProperty Name="PcsPerBox" ColumnName="PcsPerBox" />
+                <ScalarProperty Name="BoxPerCarton" ColumnName="BoxPerCarton" />
+                <ScalarProperty Name="ExpiryAgeMonths" ColumnName="ExpiryAgeMonths" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsFinish" ColumnName="IsFinish" />
+                <ScalarProperty Name="IsLoose" ColumnName="IsLoose" />
+                <ScalarProperty Name="IsCP" ColumnName="IsCP" />
+                <ScalarProperty Name="NationWeekCover" ColumnName="NationWeekCover" />
+                <ScalarProperty Name="DepotWeekCover" ColumnName="DepotWeekCover" />
+                <ScalarProperty Name="IsIncludeInDBR" ColumnName="IsIncludeInDBR" />
+                <ScalarProperty Name="IsIncludeInDispatchPlan" ColumnName="IsIncludeInDispatchPlan" />
+                <ScalarProperty Name="IsERPItem" ColumnName="IsERPItem" />
+                <ScalarProperty Name="IsAdminUpdated" ColumnName="IsAdminUpdated" />
+                <ScalarProperty Name="StorageTankID" ColumnName="StorageTankID" />
+                <ScalarProperty Name="WeightTolerance_Min" ColumnName="WeightTolerance_Min" />
+                <ScalarProperty Name="WeightTolerance_Max" ColumnName="WeightTolerance_Max" />
+                <ScalarProperty Name="ProductNature" ColumnName="ProductNature" />
+                <ScalarProperty Name="IsBackDateDispatchAllowed" ColumnName="IsBackDateDispatchAllowed" />
+                <ScalarProperty Name="AverageRate" ColumnName="AverageRate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblProductTypes">
+            <EntityTypeMapping TypeName="DFLDBModel.tblProductType">
+              <MappingFragment StoreEntitySet="tblProductType">
+                <ScalarProperty Name="ProductTypeID" ColumnName="ProductTypeID" />
+                <ScalarProperty Name="ProductTypeRefNo" ColumnName="ProductTypeRefNo" />
+                <ScalarProperty Name="ProductTypeTitle" ColumnName="ProductTypeTitle" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblSuppliers">
+            <EntityTypeMapping TypeName="DFLDBModel.tblSupplier">
+              <MappingFragment StoreEntitySet="tblSupplier">
+                <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+                <ScalarProperty Name="SupplierRefNo" ColumnName="SupplierRefNo" />
+                <ScalarProperty Name="SupplierTitle" ColumnName="SupplierTitle" />
+                <ScalarProperty Name="OldCode" ColumnName="OldCode" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="TelNo" ColumnName="TelNo" />
+                <ScalarProperty Name="FaxNo" ColumnName="FaxNo" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="WebSite" ColumnName="WebSite" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblTransporters">
+            <EntityTypeMapping TypeName="DFLDBModel.tblTransporter">
+              <MappingFragment StoreEntitySet="tblTransporter">
+                <ScalarProperty Name="TransporterID" ColumnName="TransporterID" />
+                <ScalarProperty Name="TransporterRefNo" ColumnName="TransporterRefNo" />
+                <ScalarProperty Name="OldCode" ColumnName="OldCode" />
+                <ScalarProperty Name="TransporterTitle" ColumnName="TransporterTitle" />
+                <ScalarProperty Name="TransporterType" ColumnName="TransporterType" />
+                <ScalarProperty Name="TotalVehicles" ColumnName="TotalVehicles" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="TelNo" ColumnName="TelNo" />
+                <ScalarProperty Name="FaxNo" ColumnName="FaxNo" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="WebSite" ColumnName="WebSite" />
+                <ScalarProperty Name="PreferenceNo" ColumnName="PreferenceNo" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUOMs">
+            <EntityTypeMapping TypeName="DFLDBModel.tblUOM">
+              <MappingFragment StoreEntitySet="tblUOM">
+                <ScalarProperty Name="UOMID" ColumnName="UOMID" />
+                <ScalarProperty Name="UOMRefNo" ColumnName="UOMRefNo" />
+                <ScalarProperty Name="UOMTitle" ColumnName="UOMTitle" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblVehicles">
+            <EntityTypeMapping TypeName="DFLDBModel.tblVehicle">
+              <MappingFragment StoreEntitySet="tblVehicle">
+                <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
+                <ScalarProperty Name="VehicleRefNo" ColumnName="VehicleRefNo" />
+                <ScalarProperty Name="OldCode" ColumnName="OldCode" />
+                <ScalarProperty Name="VehicleTitle" ColumnName="VehicleTitle" />
+                <ScalarProperty Name="BranchID" ColumnName="BranchID" />
+                <ScalarProperty Name="VehicleNatureID" ColumnName="VehicleNatureID" />
+                <ScalarProperty Name="VehicleTypeID" ColumnName="VehicleTypeID" />
+                <ScalarProperty Name="MinimumWeightForPayable" ColumnName="MinimumWeightForPayable" />
+                <ScalarProperty Name="VehicleCategoryID" ColumnName="VehicleCategoryID" />
+                <ScalarProperty Name="TransporterID" ColumnName="TransporterID" />
+                <ScalarProperty Name="Length" ColumnName="Length" />
+                <ScalarProperty Name="Width" ColumnName="Width" />
+                <ScalarProperty Name="Height" ColumnName="Height" />
+                <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+                <ScalarProperty Name="Wheels" ColumnName="Wheels" />
+                <ScalarProperty Name="Axle" ColumnName="Axle" />
+                <ScalarProperty Name="MfgYear" ColumnName="MfgYear" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="PreferenceNo" ColumnName="PreferenceNo" />
+                <ScalarProperty Name="MinumumLoadInTon" ColumnName="MinumumLoadInTon" />
+                <ScalarProperty Name="MaximumLoadInTon" ColumnName="MaximumLoadInTon" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="TranType" ColumnName="TranType" />
+                <ScalarProperty Name="VehicleNo" ColumnName="VehicleNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblVehicleEntryDetailProducts">
+            <EntityTypeMapping TypeName="DFLDBModel.tblVehicleEntryDetailProduct">
+              <MappingFragment StoreEntitySet="tblVehicleEntryDetailProduct">
+                <ScalarProperty Name="TranDtlID" ColumnName="TranDtlID" />
+                <ScalarProperty Name="TranID" ColumnName="TranID" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="UOMID" ColumnName="UOMID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblVehicleEntryHeads">
+            <EntityTypeMapping TypeName="DFLDBModel.tblVehicleEntryHead">
+              <MappingFragment StoreEntitySet="tblVehicleEntryHead">
+                <ScalarProperty Name="TranID" ColumnName="TranID" />
+                <ScalarProperty Name="TranDate" ColumnName="TranDate" />
+                <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+                <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="BranchID" ColumnName="BranchID" />
+                <ScalarProperty Name="TranType" ColumnName="TranType" />
+                <ScalarProperty Name="VehicleEntryMode" ColumnName="VehicleEntryMode" />
+                <ScalarProperty Name="VehicleNatureID" ColumnName="VehicleNatureID" />
+                <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
+                <ScalarProperty Name="VehicleNo" ColumnName="VehicleNo" />
+                <ScalarProperty Name="TransporterID" ColumnName="TransporterID" />
+                <ScalarProperty Name="DriverID" ColumnName="DriverID" />
+                <ScalarProperty Name="NIC" ColumnName="NIC" />
+                <ScalarProperty Name="RFCardID" ColumnName="RFCardID" />
+                <ScalarProperty Name="PartyType" ColumnName="PartyType" />
+                <ScalarProperty Name="PartyID" ColumnName="PartyID" />
+                <ScalarProperty Name="PartyDescription" ColumnName="PartyDescription" />
+                <ScalarProperty Name="PartyPONo" ColumnName="PartyPONo" />
+                <ScalarProperty Name="PartyPODate" ColumnName="PartyPODate" />
+                <ScalarProperty Name="PartyNetWeightInKg" ColumnName="PartyNetWeightInKg" />
+                <ScalarProperty Name="DocNo" ColumnName="DocNo" />
+                <ScalarProperty Name="DocDate" ColumnName="DocDate" />
+                <ScalarProperty Name="AdditionalWeightInKg" ColumnName="AdditionalWeightInKg" />
+                <ScalarProperty Name="SampleNo" ColumnName="SampleNo" />
+                <ScalarProperty Name="AdditionalFreight" ColumnName="AdditionalFreight" />
+                <ScalarProperty Name="EntryStatus" ColumnName="EntryStatus" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+                <ScalarProperty Name="CloseDate" ColumnName="CloseDate" />
+                <ScalarProperty Name="CloseTime" ColumnName="CloseTime" />
+                <ScalarProperty Name="ShipmentDocumentNo" ColumnName="ShipmentDocumentNo" />
+                <ScalarProperty Name="ShipmentDocumentDate" ColumnName="ShipmentDocumentDate" />
+                <ScalarProperty Name="ShipmentRemarks1" ColumnName="ShipmentRemarks1" />
+                <ScalarProperty Name="ShipmentRemarks2" ColumnName="ShipmentRemarks2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblVehicleNatures">
+            <EntityTypeMapping TypeName="DFLDBModel.tblVehicleNature">
+              <MappingFragment StoreEntitySet="tblVehicleNature">
+                <ScalarProperty Name="VehicleNatureID" ColumnName="VehicleNatureID" />
+                <ScalarProperty Name="VehicleNatureRefNo" ColumnName="VehicleNatureRefNo" />
+                <ScalarProperty Name="VehicleNatureOldRefNo" ColumnName="VehicleNatureOldRefNo" />
+                <ScalarProperty Name="VehicleNatureTitle" ColumnName="VehicleNatureTitle" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="VehicleNatureType" ColumnName="VehicleNatureType" />
+                <ScalarProperty Name="IsQCRequired" ColumnName="IsQCRequired" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserLogs">
+            <EntityTypeMapping TypeName="DFLDBModel.UserLog">
+              <MappingFragment StoreEntitySet="UserLogs">
+                <ScalarProperty Name="Log_Id" ColumnName="Log Id" />
+                <ScalarProperty Name="User_Id" ColumnName="User Id" />
+                <ScalarProperty Name="User_name" ColumnName="User name" />
+                <ScalarProperty Name="Login_Time" ColumnName="Login Time" />
+                <ScalarProperty Name="Logout_Time" ColumnName="Logout Time" />
+                <ScalarProperty Name="Host_Name" ColumnName="Host Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="DFLDBModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Branch_Id" ColumnName="Branch Id" />
+                <ScalarProperty Name="User_Id" ColumnName="User Id" />
+                <ScalarProperty Name="First_Name" ColumnName="First Name" />
+                <ScalarProperty Name="Last_Name" ColumnName="Last Name" />
+                <ScalarProperty Name="User_Name" ColumnName="User Name" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Contact_Number" ColumnName="Contact Number" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SP_DeviceLocation" FunctionName="DFLDBModel.Store.SP_DeviceLocation" />
+          <FunctionImportMapping FunctionImportName="SP_DriverList" FunctionName="DFLDBModel.Store.SP_DriverList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DFLDBModel.SP_DriverList_Result">
+                <ScalarProperty Name="DriverRefNo" ColumnName="DriverRefNo" />
+                <ScalarProperty Name="DriverTitle" ColumnName="DriverTitle" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_GetVehicleDetailByQR" FunctionName="DFLDBModel.Store.SP_GetVehicleDetailByQR">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DFLDBModel.SP_GetVehicleDetailByQR_Result">
+                <ScalarProperty Name="VehicleNo" ColumnName="VehicleNo" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_InBound" FunctionName="DFLDBModel.Store.SP_InBound">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DFLDBModel.SP_InBound_Result">
+                <ScalarProperty Name="SupplierTitle" ColumnName="SupplierTitle" />
+                <ScalarProperty Name="Supplier_Description" ColumnName="Supplier Description" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_Insert" FunctionName="DFLDBModel.Store.SP_Insert" />
+          <FunctionImportMapping FunctionImportName="SP_INSERT_New_Vehicles" FunctionName="DFLDBModel.Store.SP_INSERT_New_Vehicles" />
+          <FunctionImportMapping FunctionImportName="SP_InsertActivityLog" FunctionName="DFLDBModel.Store.SP_InsertActivityLog" />
+          <FunctionImportMapping FunctionImportName="SP_InsertDetailsDriver" FunctionName="DFLDBModel.Store.SP_InsertDetailsDriver" />
+          <FunctionImportMapping FunctionImportName="SP_InsertLoadingActivity" FunctionName="DFLDBModel.Store.SP_InsertLoadingActivity" />
+          <FunctionImportMapping FunctionImportName="Sp_InsertTransport" FunctionName="DFLDBModel.Store.Sp_InsertTransport" />
+          <FunctionImportMapping FunctionImportName="SP_InsertWeight" FunctionName="DFLDBModel.Store.SP_InsertWeight" />
+          <FunctionImportMapping FunctionImportName="SP_MfgYearList" FunctionName="DFLDBModel.Store.SP_MfgYearList" />
+          <FunctionImportMapping FunctionImportName="SP_OutBound" FunctionName="DFLDBModel.Store.SP_OutBound">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DFLDBModel.SP_OutBound_Result">
+                <ScalarProperty Name="CustomerTitle" ColumnName="CustomerTitle" />
+                <ScalarProperty Name="Customer_Description" ColumnName="Customer Description" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_SelectProductList" FunctionName="DFLDBModel.Store.SP_SelectProductList" />
+          <FunctionImportMapping FunctionImportName="SP_SelectSelectDriver" FunctionName="DFLDBModel.Store.SP_SelectSelectDriver">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DFLDBModel.SP_SelectSelectDriver_Result">
+                <ScalarProperty Name="DriverID" ColumnName="DriverID" />
+                <ScalarProperty Name="DriverRefNo" ColumnName="DriverRefNo" />
+                <ScalarProperty Name="DriverTitle" ColumnName="DriverTitle" />
+                <ScalarProperty Name="TransporterID" ColumnName="TransporterID" />
+                <ScalarProperty Name="NIC" ColumnName="NIC" />
+                <ScalarProperty Name="TelNo" ColumnName="TelNo" />
+                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_SelectUOMList" FunctionName="DFLDBModel.Store.SP_SelectUOMList" />
+          <FunctionImportMapping FunctionImportName="SP_SelectVehicles" FunctionName="DFLDBModel.Store.SP_SelectVehicles">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DFLDBModel.SP_SelectVehicles_Result">
+                <ScalarProperty Name="MfgYear" ColumnName="MfgYear" />
+                <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
+                <ScalarProperty Name="VehicleNo" ColumnName="VehicleNo" />
+                <ScalarProperty Name="DriverTitle" ColumnName="DriverTitle" />
+                <ScalarProperty Name="NIC" ColumnName="NIC" />
+                <ScalarProperty Name="TransporterTitle" ColumnName="TransporterTitle" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_ShipmentDocNo" FunctionName="DFLDBModel.Store.SP_ShipmentDocNo" />
+          <FunctionImportMapping FunctionImportName="SP_TransporterList" FunctionName="DFLDBModel.Store.SP_TransporterList" />
+          <FunctionImportMapping FunctionImportName="Sp_VehichleDetail" FunctionName="DFLDBModel.Store.Sp_VehichleDetail">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DFLDBModel.Sp_VehichleDetail_Result">
+                <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
+                <ScalarProperty Name="VehicleRefNo" ColumnName="VehicleRefNo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Sp_VehichleInfo" FunctionName="DFLDBModel.Store.Sp_VehichleInfo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DFLDBModel.Sp_VehichleInfo_Result">
+                <ScalarProperty Name="VehicleNo" ColumnName="VehicleNo" />
+                <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
+                <ScalarProperty Name="RFCardID" ColumnName="RFCardID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_VehicleInMainGateINOUT" FunctionName="DFLDBModel.Store.SP_VehicleInMainGateINOUT">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DFLDBModel.SP_VehicleInMainGateINOUT_Result">
+                <ScalarProperty Name="TransporterTitle" ColumnName="TransporterTitle" />
+                <ScalarProperty Name="DriverID" ColumnName="DriverID" />
+                <ScalarProperty Name="TransporterID" ColumnName="TransporterID" />
+                <ScalarProperty Name="VehicleNatureID" ColumnName="VehicleNatureID" />
+                <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
+                <ScalarProperty Name="VehicleNatureTitle" ColumnName="VehicleNatureTitle" />
+                <ScalarProperty Name="VehicleTitle" ColumnName="VehicleTitle" />
+                <ScalarProperty Name="NIC" ColumnName="NIC" />
+                <ScalarProperty Name="DriverTitle" ColumnName="DriverTitle" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_VehicleNatureType" FunctionName="DFLDBModel.Store.SP_VehicleNatureType">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DFLDBModel.SP_VehicleNatureType_Result">
+                <ScalarProperty Name="VehicleNatureID" ColumnName="VehicleNatureID" />
+                <ScalarProperty Name="VehicleNatureRefNo" ColumnName="VehicleNatureRefNo" />
+                <ScalarProperty Name="VehicleNatureOldRefNo" ColumnName="VehicleNatureOldRefNo" />
+                <ScalarProperty Name="VehicleNatureTitle" ColumnName="VehicleNatureTitle" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="VehicleNatureType" ColumnName="VehicleNatureType" />
+                <ScalarProperty Name="IsQCRequired" ColumnName="IsQCRequired" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_VehicleQRCode" FunctionName="DFLDBModel.Store.SP_VehicleQRCode">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DFLDBModel.SP_VehicleQRCode_Result">
+                <ScalarProperty Name="TranID" ColumnName="TranID" />
+                <ScalarProperty Name="TranDate" ColumnName="TranDate" />
+                <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+                <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="BranchID" ColumnName="BranchID" />
+                <ScalarProperty Name="TranType" ColumnName="TranType" />
+                <ScalarProperty Name="VehicleEntryMode" ColumnName="VehicleEntryMode" />
+                <ScalarProperty Name="VehicleNatureID" ColumnName="VehicleNatureID" />
+                <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
+                <ScalarProperty Name="VehicleNo" ColumnName="VehicleNo" />
+                <ScalarProperty Name="TransporterID" ColumnName="TransporterID" />
+                <ScalarProperty Name="DriverID" ColumnName="DriverID" />
+                <ScalarProperty Name="NIC" ColumnName="NIC" />
+                <ScalarProperty Name="RFCardID" ColumnName="RFCardID" />
+                <ScalarProperty Name="PartyType" ColumnName="PartyType" />
+                <ScalarProperty Name="PartyID" ColumnName="PartyID" />
+                <ScalarProperty Name="PartyDescription" ColumnName="PartyDescription" />
+                <ScalarProperty Name="PartyPONo" ColumnName="PartyPONo" />
+                <ScalarProperty Name="PartyPODate" ColumnName="PartyPODate" />
+                <ScalarProperty Name="PartyNetWeightInKg" ColumnName="PartyNetWeightInKg" />
+                <ScalarProperty Name="DocNo" ColumnName="DocNo" />
+                <ScalarProperty Name="DocDate" ColumnName="DocDate" />
+                <ScalarProperty Name="AdditionalWeightInKg" ColumnName="AdditionalWeightInKg" />
+                <ScalarProperty Name="SampleNo" ColumnName="SampleNo" />
+                <ScalarProperty Name="AdditionalFreight" ColumnName="AdditionalFreight" />
+                <ScalarProperty Name="EntryStatus" ColumnName="EntryStatus" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+                <ScalarProperty Name="CloseDate" ColumnName="CloseDate" />
+                <ScalarProperty Name="CloseTime" ColumnName="CloseTime" />
+                <ScalarProperty Name="ShipmentDocumentNo" ColumnName="ShipmentDocumentNo" />
+                <ScalarProperty Name="ShipmentDocumentDate" ColumnName="ShipmentDocumentDate" />
+                <ScalarProperty Name="ShipmentRemarks1" ColumnName="ShipmentRemarks1" />
+                <ScalarProperty Name="ShipmentRemarks2" ColumnName="ShipmentRemarks2" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_DeviceLocate" FunctionName="DFLDBModel.Store.SP_DeviceLocate">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DFLDBModel.SP_DeviceLocate_Result">
+                <ScalarProperty Name="DeviceName" ColumnName="DeviceName" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="ActivityDate" ColumnName="ActivityDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

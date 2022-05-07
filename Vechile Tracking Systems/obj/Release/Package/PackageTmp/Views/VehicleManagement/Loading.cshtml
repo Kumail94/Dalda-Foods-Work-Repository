@@ -1,0 +1,186 @@
+﻿@{
+    ViewBag.Title = "Loading";
+}
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<style>
+    .modal-dialog {
+        margin-top: 0;
+        margin-bottom: 0;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .modal.fade .modal-dialog {
+        transform: translate(0, -100%);
+    }
+
+    .modal.in .modal-dialog {
+        transform: translate(0, 0);
+    }
+
+    .card {
+        border-radius: 4px;
+        background: #fff;
+        box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+        transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+        padding: 14px 60px 18px 36px;
+        cursor: pointer;
+        margin: 10px;
+        background-repeat: no-repeat;
+        background-position: right;
+        background-size: 90px;
+        max-width: 950px;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+    }
+
+    .card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+    }
+
+
+    h1 {
+        font: bold;
+        font-family: 'Lucida Sans';
+        color: #5c5858;
+        opacity: inherit;
+        margin-top: 75px;
+    }
+
+    #header {
+        transition: all 0.5s;
+        background: #fff;
+        z-index: 997;
+        padding: 15px 0;
+        border-bottom: 1px solid #e6f2fb;
+        height: 70px;
+    }
+
+    #im {
+        height: 50px;
+        width: 120px;
+    }
+
+    .fixed-top {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+    }
+</style>
+
+<header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+        <div class="logo mr-auto"><img src="~/assets/img/Dalda-1.png" class="img-fluid" alt="" id="im"></div>
+    </div>
+</header>
+
+<div class="container">
+    <h1 class="text-center">Vehicle Loading / Un Loading</h1>
+    <div class="row">
+        <div class="col-sm-6">
+           
+                <div class="card">
+                    <h2 class="title"><a href="#"  data-toggle="modal" data-target="#lodaingModal" onclick="loadStart()">Loading Start</a></h2>
+                    <img src="https://5.imimg.com/data5/SELLER/Default/2020/11/QN/WK/VP/1348195/electronic-weighbridge-500x500.jpg" class="img-thumbnail" alt="Alternate Text" />
+                </div>
+            
+        </div>
+        <div class="col-sm-6">
+            
+                <div class="card">
+                    <h2 class="title"><a href="#"  data-toggle="modal" data-target="#lodaingModal" onclick="loadEnd()">Loading End</a></h2>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMzAVKmZoPYIWKK-mTdHuqtA_Y58m62wXQ4A&usqp=CAU" style="height:280px" class="img-thumbnail" alt="Alternate Text" />
+                </div>
+            
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="lodaingModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="exampleModalLabel">QR Code</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+                <input type="text" name="qrCode" id="inputName" autofocus/>
+                <div class="justify-content-center">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=DFL_VMS_@Session["QR"]"
+                         id="randomQR" style="margin:10px; display:none" width="150" height="90" class="qr-code img-thumbnail img-responsive" />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary center-block" onclick="ProcessQR()">Process</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+    var qrCodeNo;
+    var load;
+    $(document).ready(function () {
+        $("#lodaingModal").on('shown.bs.modal', function () {
+            $(this).find('#inputName').focus();
+            const checkEmpty = document.querySelector('input');
+            checkEmpty.addEventListener('input', function () {
+                if (checkEmpty.value && checkEmpty.value.length > 0 && checkEmpty.value.trim().length > 0) {
+                    $("#randomQR").show();
+                    qrCodeNo = $('#inputName').val();
+
+                } else {
+                    $("#inputName").val("");
+                    //$("#randomQR").removeAttr("src");
+                    $("#randomQR").hide();
+                }
+            });
+
+        });
+    });
+
+    function loadStart() {
+        load = "Loading Start";
+        $('#exampleModalLabel').html(load);
+    }
+    function loadEnd() {
+        load = "Loading End";
+        $('#exampleModalLabel').html(load);
+    }
+
+    function ProcessQR() {
+        if (qrCodeNo != "") {
+            console.log("-> " ,load)
+            $.ajax({
+                type: 'POST',
+                url: 'Loading',
+                data: {
+                    qrNo: qrCodeNo,
+                    loading:load
+                },
+                success: (response) => {
+                    console.log(response);
+                }, err: (err) => {
+                    console.log(err);
+                }
+            });
+            $('#lodaingModal').modal('hide');
+        }
+    }
+</script>

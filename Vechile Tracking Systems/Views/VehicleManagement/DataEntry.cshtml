@@ -1,0 +1,1069 @@
+﻿
+@{
+    Layout = null;
+    //ViewBag.Title = "DataEntry";
+}
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<style>
+    .card {
+        border-radius: 4px;
+        background: #fff;
+        box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+        transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+        padding: 14px 60px 18px 36px;
+        cursor: pointer;
+        margin: 10px;
+    }
+
+    .card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+    }
+    .myclass {
+        height: 430px;
+        width:500px;
+        overflow-y: scroll;
+    }
+    .design {
+        background-repeat: no-repeat;
+        background-position: right;
+        background-size: 90px;
+        max-width: 950px;
+        width: 600px;
+        margin: 10px;
+        position: relative;
+        overflow: hidden;
+        background: #fff;
+        box-shadow: 0 0 29px 0 rgb(18 66 101 / 8%);
+        transition: all 0.3s ease-in-out;
+        border-radius: 8px;
+        z-index: 1;
+        margin-top: 30px;
+    }
+
+    h1 {
+        font: bold;
+        font-family: 'Lucida Sans';
+        color: #5c5858;
+        opacity: inherit;
+        margin-top: 75px;
+    }
+
+    checkbox {
+        margin: 20px;
+    }
+
+    #header {
+        transition: all 0.5s;
+        background: #fff;
+        z-index: 997;
+        padding: 15px 0;
+        border-bottom: 1px solid #e6f2fb;
+        height: 70px;
+    }
+
+    .img-fluid {
+        height: 50px;
+        width:120px;
+    }
+
+    .fixed-top {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+    }
+
+    input[type=text] {
+        border: none;
+        color: #0d0d0d;
+        padding: 5px 6px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 12px;
+        margin: 5px;
+        width: 100%;
+        border: 2px solid #f6f6f6;
+        -webkit-transition: all 0.5s ease-in-out;
+        -moz-transition: all 0.5s ease-in-out;
+        -o-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+        -webkit-border-radius: 5px 5px 5px 5px;
+        border-radius: 5px 5px 5px 5px;
+    }
+
+    input[type=number] {
+        border: none;
+        color: #0d0d0d;
+        padding: 5px 6px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 12px;
+        margin: 5px;
+        width: 100%;
+        border: 2px solid #f6f6f6;
+        -webkit-transition: all 0.5s ease-in-out;
+        -moz-transition: all 0.5s ease-in-out;
+        -o-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+        -webkit-border-radius: 5px 5px 5px 5px;
+        border-radius: 5px 5px 5px 5px;
+    }
+
+    #record {
+        display: block;
+        margin: 0 auto;
+        width: 300px;
+    }
+
+    #record:focus {
+        background-color: #fff;
+        border-bottom: 2px solid #5fbae9;
+    }
+
+    input[type=text]:focus {
+        background-color: #fff;
+        border-bottom: 2px solid #5fbae9;
+    }
+    input[type=number]:focus {
+        background-color: #fff;
+        border-bottom: 2px solid #5fbae9;
+    }
+    #master {
+        /*   background-color: #f6f6f6;*/
+        border: none;
+        color: #0d0d0d;
+        padding: 11px 12px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 12px;
+        margin: 5px;
+        width: 100%;
+        border: 2px solid #f6f6f6;
+        -webkit-transition: all 0.5s ease-in-out;
+        -moz-transition: all 0.5s ease-in-out;
+        -o-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+        -webkit-border-radius: 5px 5px 5px 5px;
+        border-radius: 5px 5px 5px 5px;
+    }
+
+    #master {
+        background-color: #fff;
+        border-bottom: 2px solid #5fbae9;
+    }
+
+    select {
+        background-color: #f6f6f6;
+        border: none;
+        color: #0d0d0d;
+        padding: 6px 7px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 12px;
+        margin: 5px;
+        width: 100%;
+        border: 2px solid #f6f6f6;
+        -webkit-transition: all 0.5s ease-in-out;
+        -moz-transition: all 0.5s ease-in-out;
+        -o-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+        -webkit-border-radius: 5px 5px 5px 5px;
+        border-radius: 5px 5px 5px 5px;
+    }
+
+    textarea {
+        background-color: #f6f6f6;
+        border: none;
+        color: #0d0d0d;
+        padding: 6px 7px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 12px;
+        margin: 5px;
+        width: 100%;
+        border: 2px solid #f6f6f6;
+        -webkit-transition: all 0.5s ease-in-out;
+        -moz-transition: all 0.5s ease-in-out;
+        -o-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+        -webkit-border-radius: 5px 5px 5px 5px;
+        border-radius: 5px 5px 5px 5px;
+    }
+
+    select {
+        background-color: #fff;
+        border-bottom: 2px solid #5fbae9;
+    }
+
+    input[type=date] {
+        /*background-color: #f6f6f6;*/
+        border: none;
+        color: #0d0d0d;
+        padding: 6px 7px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 12px;
+        margin: 5px;
+        width: 100%;
+        border: 2px solid #f6f6f6;
+        -webkit-transition: all 0.5s ease-in-out;
+        -moz-transition: all 0.5s ease-in-out;
+        -o-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+        -webkit-border-radius: 5px 5px 5px 5px;
+        border-radius: 5px 5px 5px 5px;
+    }
+
+        input[type=date]:focus {
+            background-color: #fff;
+            border-bottom: 2px solid #5fbae9;
+        }
+</style>
+
+
+<header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+        <div class="logo mr-auto"><img src="~/assets/img/Dalda-1.png" class="img-fluid" alt=""></div>
+    </div>
+</header>
+
+
+<div class="container">
+    <h1 class="text-center">New Vehicle Entry</h1>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="col-sm-3 design">
+                <div class="card">
+                    <h2 class="title"><a href="@Url.Action("EntryFor")">Transporter</a></h2>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Transporter Code</label>
+                                <input type="text" name="tranId" id="transpCode" value="" />
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Transporter Title</label>
+                                <input type="text" name="transacationDate" id="transptitle" value="" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Transporter Type</label>
+                                <select id="transptype">
+                                    <option value="value">--Select --</option>
+                                    <option value="value">P</option>
+                                    <option value="value">S</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Total Vehicles</label>
+                                <input type="text" name="tranId" id="totalVehicle" value="" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Address 1</label>
+                                <textarea id="textA"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Address 2</label>
+                                <textarea id="textB"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Telephone</label>
+                                <input type="text" id="telephone" name="name" value="" />
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Fax</label>
+                                <input type="text" id="fax" name="name" value="" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" id="Em" name="name" value="" />
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Web Site	</label>
+                                <input type="text" id="Web" name="name" value="" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Preference No.</label>
+                                <input type="text" name="name" id="preNo" value="" />
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Active</label><br />
+                                <input type="checkbox" name="name" id="active" value="0" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="col-sm-3 design">
+                <div class="card">
+                    <h2 class="title"><a href="@Url.Action("EntryFor")">Detail Info</a></h2>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" name="Name" value="" />
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Designation</label>
+                                <select class="glyphicon glyphicon-search" name="Designation">
+                                    <option value="value">--Select--</option>
+                                    <option value="value">DaldaFoodsLtd.</option>
+                                    <option value="value">Manager</option>
+                                    <option value="value">Owner</option>
+                                    <option value="value">Supplier</option>
+                                    <option value="value">TransporterRepresentative</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Contact #</label>
+                                <input type="text" name="Contact" value="" />
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" name="Email" value="" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <input type="submit" name="name" value="Add" style="float:right" />
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div id="myclass">
+                                <table class="table table-striped table-hover table-sm">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Designation</th>
+                                            <th>Contact #</th>
+                                            <th>Email</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Tester</td>
+                                            <td>ABCD</td>
+                                            <td>12456787</td>
+                                            <td>abc@example.com</td>
+                                            <td class="glyphicon glyphicon-edit"></td>
+                                            <td class="glyphicon glyphicon-trash"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Testing</td>
+                                            <td>DEFG</td>
+                                            <td>145787</td>
+                                            <td>abc@example.com</td>
+                                            <td class="glyphicon  glyphicon-edit"></td>
+                                            <td class="glyphicon glyphicon-trash"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Tester</td>
+                                            <td>YZMw</td>
+                                            <td>12445787</td>
+                                            <td>abc@example.com</td>
+                                            <td class="glyphicon glyphicon-resize-small glyphicon-edit"></td>
+                                            <td class="glyphicon glyphicon-resize-small glyphicon-trash"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Tester</td>
+                                            <td>YZMw</td>
+                                            <td>12445787</td>
+                                            <td>abc@example.com</td>
+                                            <td class="glyphicon glyphicon-resize-small glyphicon-edit"></td>
+                                            <td class="glyphicon glyphicon-resize-small glyphicon-trash"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Tester</td>
+                                            <td>YZMw</td>
+                                            <td>12445787</td>
+                                            <td>abc@example.com</td>
+                                            <td class="glyphicon glyphicon-resize-small glyphicon-edit"></td>
+                                            <td class="glyphicon glyphicon-resize-small glyphicon-trash"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Tester</td>
+                                            <td>YZMw</td>
+                                            <td>12445787</td>
+                                            <td>abc@example.com</td>
+                                            <td class="glyphicon glyphicon-resize-small glyphicon-edit"></td>
+                                            <td class="glyphicon glyphicon-resize-small glyphicon-trash"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Tester</td>
+                                            <td>YZMw</td>
+                                            <td>12445787</td>
+                                            <td>abc@example.com</td>
+                                            <td class="glyphicon glyphicon-resize-small glyphicon-edit"></td>
+                                            <td class="glyphicon glyphicon-resize-small glyphicon-trash"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Tester</td>
+                                            <td>YZMw</td>
+                                            <td>12445787</td>
+                                            <td>abc@example.com</td>
+                                            <td class="glyphicon glyphicon-resize-small glyphicon-edit"></td>
+                                            <td class="glyphicon glyphicon-resize-small glyphicon-trash"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                                <input type="button" name="name" value="Save" style="float: right; margin-right: 5px" />
+                                <input type="button" name="name" value="Cancel" style="float:right; margin-right: 5px" />
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="col-sm-3 design">
+                <div class="card">
+                    <h2 class="title"><a href="@Url.Action("Driver")">Driver</a></h2>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Driver Code</label>
+                                <input type="text" name="tranId" id="DrivCod" value="" />
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Driver Title</label>
+                                <input type="text" name="transacationDate" id="DrivTitle" value="" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Transporter</label>
+                                <select id="transporter">
+                                    <option value="">--Select--</option>
+                                    @if (ViewBag.Check1 == "OK")
+                                    {
+                                        foreach (var item in ViewBag.TranporterList)
+                                        {
+                                            <option value="">@item</option>
+                                        }
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>NIC</label>
+                                <input type="text" name="tranId" id="Cnic" value="" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Telephone</label>
+                                <input type="text" name="tranId" id="phoneNo" value="" />
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Mobile No.</label>
+                                <input type="text" name="tranId" id="moboNo" value="" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Active</label><br />
+                        <input type="checkbox" name="tranId" id="act" value="0" />
+                    </div>
+                    <div class="form-group" style="float:inherit">
+                        <input type="button" name="name" value="Save" style="margin:4px;" onclick="AddDetails()" />
+                        <input type="button" name="name" value="Cancel" style="margin:4px;" onclick="ClearBox()" />
+                        @using (Html.BeginForm("Export", "VehicleManagement", FormMethod.Post))
+                        {
+                            <input type="submit" value="Export" style="margin:4px;" />
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="col-sm-3 design">
+                <div class="card">
+                    <h2 class="title"><a href="@Url.Action("EntryFor")">Driver List</a></h2>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="myclass">
+                                <table class="table table-striped table-hover table-sm justify-content-center">
+                                    <thead>
+                                        <tr>
+                                            <th colspan="2">Driver Code</th>
+                                            <th>Driver Title</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                       @if (ViewBag.Check5 == "OK")
+                                       {
+                                           foreach (var item in (dynamic[])ViewBag.DriverList)
+                                           {
+
+                                        <tr>
+                                            <td colspan="2">@item.DriverRefNo</td>
+                                            <td>@item.DriverTitle</td>
+                                        </tr>
+                                           }
+
+                                       }
+                                    </tbody>
+                                </table>
+                            </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="form-group">
+                    <h3>Select Vehicle Master File</h3>
+                    <br />
+                    <select id="master">
+                        <option value="value">Vehicle  Master File-Primary</option>
+                        <option value="value">Vehicle  Master File-Secondary</option>
+                    </select>
+                </div>
+                <h2 class="title"><a href="@Url.Action("Vehicle")">Vehicle</a></h2>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>Vehicle Code</label>
+                            <input type="text" id="vehicleCode" value="@ViewBag.iD" disabled />
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>Vehicle Title</label>
+                            <input type="text" id="vehicleTitle" value="" />
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>Vehicle Type</label>
+                            <select id="vehicleTypeList">
+                                <option value="value">--Select--</option>
+                                @if (ViewBag.Check2 == "OK")
+                                {
+                                    foreach (var item in ViewBag.VehicleNatureTypeList)
+                                    {
+                                        <option value="value">@item</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>Vehicle Nature</label>
+                            <select id="vehicleNatureList">
+                                <option value="value">--Select--</option>
+                                @if (ViewBag.Check3 == "OK")
+                                {
+                                    foreach (var item in ViewBag.VehicleNatureTitleList)
+                                    {
+                                        <option value="value">@item</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>Vehicle Category</label>
+                            <select id="vehicleCategoryList">
+                                <option value="value">--Select--</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>Min Weight Payable</label>
+                            <input type="text" id="minWeightPayable" value="" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>Length</label>
+                            <input type="text" id="length" value="" />
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>Transporter</label>
+                            <select id="transporterList">
+                                <option value="value">--Select--</option>
+                                @if (ViewBag.Check1 == "OK")
+                                {
+                                    foreach (var item in ViewBag.TranporterList)
+                                    {
+                                        <option value="value">@item</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>Height</label>
+                            <input type="text" id="height" value="" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>Width</label>
+                            <input type="text" id="width" value="" />
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>Wheels</label>
+                            <input type="text" id="wheels" value="" />
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>Capacity</label>
+                            <input type="text" id="capacity" value="" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>Axle</label>
+                            <input type="number" id="axle" value="" />
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>Mfg Year</label>
+                            <select id="mfgYearList">
+                                <option value="value">--Select--</option>
+                                @if (ViewBag.Check4 == "OK")
+                                {
+                                    foreach (var item in ViewBag.VehicleMfgYearList)
+                                    {
+                                        <option value="@item">@item</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>Priority</label>
+                            <input type="number" id="priority" value="" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>Min Load</label>
+                            <input type="text" id="minLoad" value="" />
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>Max Load</label>
+                            <input type="text" id="maxLoad" value="" />
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>Preference No.</label>
+                            <input type="text" id="preferenceNo" value="" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>Vehicle No.</label>
+                            <input type="text" id="vNumber" value="" />
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>Active</label><br />
+                            <input type="checkbox" id="status" value="" />
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <h2 class="title"><a href="@Url.Action("Decker")">Decker Detail Info</a></h2>
+                                    <div class="form-group">
+                                        <input type="text" id="record" name="tranId" value="No Record Found" class="justify-content-center" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <h2 class="title"><a href="@Url.Action("Decker")">Driver Detail Info</a></h2>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Driver Name</label>
+                                        <input type="text" name="name" class="glyphicon glyphicon-search" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>CNIC#</label>
+                                        <input type="text" name="name" disabled />
+                                    </div>
+                                </div>
+                                <input type="button" name="name" value="Add" style="float:right" />
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                   <table class="table table-striped table-sm">
+                                        <thead class="table-responsive-sm">
+                                            <tr>
+                                                <th>Driver Name</th>
+                                                <th>CNIC NO</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Hello</td>
+                                                <td>103456</td>
+                                                <td class="glyphicon glyphicon-edit"></td>
+                                                <td class="glyphicon glyphicon-remove"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Testing</td>
+                                                <td>654879</td>
+                                                <td class="glyphicon glyphicon-edit"></td>
+                                                <td class="glyphicon glyphicon-remove"></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="button" value="Save" style="margin:3px;float:right" onclick="AddVehicles()" />
+                        <input type="button" value="Cancel" style="margin: 3px; float: right" />
+
+                    </div>
+                 </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <h2 class="title"><a href="@Url.Action("Decker")">Vehicle Type</a></h2>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>Vehicle Type Code</label>
+                                        <input type="text" name="name" disabled value="AUTO" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>Vehicle Type Title</label>
+                                        <input type="text" name="name" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>Container Size (Ft.)</label>
+                                        <input type="text" name="name" />
+                                    </div>
+                                </div>
+                                @*<input type="button" name="name" value="Add" style="float:right" />*@
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>Decker</label>
+                                        <select>
+                                            <option value="value">--Select--</option>
+                                            <option value="value">Single</option>
+                                            <option value="value">Double</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>Min Weight Payable (Ton)</label>
+                                        <input type="text" name="name" value="" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <h2 class="title"><a href="@Url.Action("Decker")">Additional Weight Discount</a></h2>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Weight Applicable For Discount (Ton)</label>
+                                        <input type="text" name="name" value="" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Discount %</label>
+                                        <input type="text" name="name" value="" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <h2 class="title"><a href="@Url.Action("Decker")">Double Trips Discount</a></h2>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>No. Of Trips Per Day</label>
+                                        <input type="text" name="name" value="" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>Discount %</label>
+                                        <input type="text" name="name" value="" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>Preference No.</label>
+                                        <input type="text" name="name" value="" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>Active</label><br />
+                                        <input type="checkbox" name="name" value="" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    function ClearBox() {
+        $('#DrivCod').val("");
+        $('#DrivTitle').val("");
+        $('#transporter :selected').text("");
+         $('#Cnic').val("");
+         $('#phoneNo').val("");
+        $('#moboNo').val("");
+    }
+    function AddDetails() {
+
+        var transpCode = $('#transpCode').val().trim();
+        var transptitle = $('#transptitle').val().trim();
+        var transptype = $('#transptype :selected').text();
+        var totalVehicle = $('#totalVehicle').val().trim();
+        var textA = $('#textA').val().trim();
+        var textB = $('#textB').val().trim();
+        var telephone = $('#telephone').val().trim();
+        var fax = $('#fax').val().trim();
+        var Em = $('#Em').val().trim();
+        var Web = $('#Web').val().trim();
+        var preNo = $('#preNo').val().trim();
+
+
+        var DrivCod = $('#DrivCod').val().trim();
+        var DrivTitle = $('#DrivTitle').val().trim();
+        var transpID = $('#transporter :selected').index();
+        var Cnic = $('#Cnic').val().trim();
+        var phoneNo = $('#phoneNo').val().trim();
+        var moboNo = $('#moboNo').val().trim();
+
+        $.ajax({
+            type: 'POST',
+            url: 'DataEntry',
+            data: {
+                transpCode: transpCode
+                , transptitle: transptitle
+                , transptype: transptype
+                , totalVehicle: totalVehicle
+                , textA: textA
+                , textB: textB
+                , telephone: telephone
+                , fax: fax
+                , Em: Em
+                , Web: Web
+                , preNo: preNo
+                , active: 1
+
+                , DrivCod: DrivCod
+                , DrivTitle: DrivTitle
+                , transporter: transpID
+                , Cnic: Cnic
+                , phoneNo: phoneNo
+                , moboNo: moboNo
+                , act: 1
+
+            },
+            success: (response) => {
+                console.log(response)
+            },
+            error: (err) => {
+                console.log(err)
+            }
+        });
+    }
+    function AddVehicles() {
+
+        var vehicleCode = $('#vehicleCode').val();
+        var vehicleTitle = $('#vehicleTitle').val();
+        var vehicleTypeList = $('#vehicleTypeList :selected').index();
+        var vehicleNatureList = $('#vehicleNatureList :selected').index();
+        var vehicleCategoryList = $('#vehicleCategoryList :selected').index();
+        var minWeightPayable = $('#minWeightPayable').val();
+        var length = $('#length').val();
+        var transporterList = $('#transporterList :selected').index();
+        var height = $('#height').val();
+        var width = $('#width').val();
+        var wheels = $('#wheels').val();
+        var capacity = $('#capacity').val();
+        var axle = $('#axle').val();
+        var mfgYearList = $('#mfgYearList :selected').index();
+        var priority = $('#priority').val();
+        var minLoad = $('#minLoad').val();
+        var maxLoad = $('#maxLoad').val();
+        var preferenceNo = $('#preferenceNo').val();
+        var vNumber = $('#vNumber').val();
+        var tranType = $('#vehicleTypeList :selected').text();
+        var status=$('#status').val();
+
+        $.ajax({
+
+            type: 'POST',
+            url: 'AddNewVehicleEntries',
+            data: {
+                vehicleCode: vehicleCode
+                ,vehicleTitle: vehicleTitle
+                , vehicleTypeId: vehicleTypeList
+                , vehicleNatureId: vehicleNatureList
+                , vehicleCategoryId: 10
+                , minWeightPayable: minWeightPayable
+                , length: length
+                , transporterId: transporterList
+                , height: height
+                , width: width
+                , wheels: wheels
+                , capacity: capacity
+                , axle: axle
+                , mfgYearId: mfgYearList
+                , priority: priority
+                , minLoad: minLoad
+                , maxLoad: maxLoad
+                , preferenceNo: preferenceNo
+                , tranType: tranType
+                , vNumber: vNumber
+                , status: 1
+                },
+            success: (response) => {
+                console.log(response)
+            },
+            error: (err) => {
+                console.log("Error Message: ", err)
+            }
+
+        });
+    }
+</script>

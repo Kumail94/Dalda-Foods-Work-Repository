@@ -1,0 +1,676 @@
+﻿@model List<Vechile_Tracking_Systems.Models.VehicleModel>
+@{
+    //ViewBag.Title = "MainGateIn";
+    Layout = null;
+}
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<style>
+    .card {
+        border-radius: 4px;
+        background: #fff;
+        transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+        padding: 14px 60px 18px 36px;
+        cursor: pointer;
+        background-repeat: no-repeat;
+        background-position: right;
+        background-size: 90px;
+        max-width: 950px;
+        width: 600px;
+        position: relative;
+        overflow: hidden;
+        background: #fff;
+        box-shadow: 0 0 29px 0 rgb(18 66 101 / 8%);
+        transition: all 0.3s ease-in-out;
+        border-radius: 8px;
+        z-index: 1;
+        margin: 25px;
+    }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+        }
+
+    h1 {
+        font: bold;
+        font-family: 'Lucida Sans';
+        color: #5c5858;
+        opacity: inherit;
+        margin-top: 100px;
+    }
+
+    #header {
+        transition: all 0.5s;
+        background: #fff;
+        z-index: 997;
+        padding: 15px 0;
+        border-bottom: 1px solid #e6f2fb;
+        height: 70px;
+    }
+
+
+    .fixed-top {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+    }
+
+    input[type=text] {
+        border: none;
+        color: #0d0d0d;
+        padding: 7px 8px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 14px;
+        margin: 5px;
+        width: 100%;
+        border: 2px solid #f6f6f6;
+        -webkit-transition: all 0.5s ease-in-out;
+        -moz-transition: all 0.5s ease-in-out;
+        -o-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+        -webkit-border-radius: 5px 5px 5px 5px;
+        border-radius: 5px 5px 5px 5px;
+    }
+
+        input[type=text]:focus {
+            background-color: #fff;
+            border-bottom: 2px solid #5fbae9;
+        }
+
+    .myclass {
+        height: 200px;
+        overflow-y: scroll;
+    }
+    select {
+        background-color: #f6f6f6;
+        border: none;
+        color: #0d0d0d;
+        padding: 7px 8px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 14px;
+        margin: 5px;
+        width: 100%;
+        border: 2px solid #f6f6f6;
+        -webkit-transition: all 0.5s ease-in-out;
+        -moz-transition: all 0.5s ease-in-out;
+        -o-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+        -webkit-border-radius: 5px 5px 5px 5px;
+        border-radius: 5px 5px 5px 5px;
+    }
+
+    select {
+        background-color: #fff;
+        border-bottom: 2px solid #5fbae9;
+    }
+
+    input[type=date] {
+        /*background-color: #f6f6f6;*/
+        border: none;
+        color: #0d0d0d;
+        padding: 7px 8px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 14px;
+        margin: 5px;
+        width: 100%;
+        border: 2px solid #f6f6f6;
+        -webkit-transition: all 0.5s ease-in-out;
+        -moz-transition: all 0.5s ease-in-out;
+        -o-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+        -webkit-border-radius: 5px 5px 5px 5px;
+        border-radius: 5px 5px 5px 5px;
+    }
+
+    #im {
+        height: 50px;
+        width: 120px;
+    }
+
+    input[type=date]:focus {
+        background-color: #fff;
+        border-bottom: 2px solid #5fbae9;
+    }
+
+    .qr-code {
+        max-width: 100px;
+        margin: 5px;
+        height: 100px;
+    }
+</style>
+
+
+<header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+        <div class="logo mr-auto"><img src="~/assets/img/Dalda-1.png" class="img-fluid" alt="" id="im"></div>
+    </div>
+</header>
+
+
+<div class="container">
+    <h1 class="text-center">Vehicle MainGate-IN/OUT Module.</h1>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card">
+                <h2 class="title"><a href="@Url.Action("EntryFor")">Entry</a></h2>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            @*<label>Tran Id</label>*@
+                         
+                                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=DFL_VMS_@ViewBag.TransQrCode"
+                                     id="randomQR" style="margin:10px" width="150" height="90" class="qr-code img-thumbnail img-responsive" />
+                             <input type="hidden" name="tranId" id="tranId" value="@ViewBag.TransQrCode" />
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Transaction Date</label>
+                            <input type="text" name="transacationDate" value="@DateTime.Now.ToShortDateString()" id="transacationDate" disabled />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Vehicle Entry For</label>
+                            <select name="vehicleEntryMode" id="vehicleEntryMode">
+                                <option value="value"> --Select-- </option>
+                                <option value="value"> Loading </option>
+                                <option value="value"> Un Loading </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Dispatch/Others</label>
+                            <select name="tranType" id="tranType">
+                                <option value="value">Dispatch</option>
+                                <option value="value">Others</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Depot</label>
+                            <select name="entryStatus" id="entryStatus">
+                                <option value="value"> --Select--</option>
+                                <option value="value"> FACTORY DPOT </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card" style="margin-left:55px;">
+                <h2 class="title"><a href="@Url.Action("Vehicle")">Vehicle</a></h2>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Vehicle No.&nbsp;</label>
+                            <input type="text" name="vechicleNo" value="" class="vehicleN" id="vehicleNumber" onkeyup="fetchingDatabasedonVehicleNo()" />&nbsp;
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Vechile Title</label>
+                            <input type="text" name="name" value="" id="VehicleTitle" disabled />
+                            @*<select id="VehicleTitleList">
+                                    <option value="value">--Select--</option>
+                                </select>*@
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Vehicle Nature</label>
+                            <input type="text" name="name" value="" id="VehicleNature" disabled />
+                            @*<select id="VehicleNatureList">
+                                    <option value="value">--Select--</option>
+                                </select>*@
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Driver</label>
+                            @*<select id="Driver">
+                                    <option value="value"> --Select--</option>
+                                </select>*@
+                            <input type="text" name="name" value="" id="Driver" disabled />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Tansporter</label>
+                            <input type="text" name="name" value="" id="Tansporter" disabled />
+                            @*<select id="TansporterList">
+                                    <option value="value"> --Select--</option>
+                                </select>*@
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>CNIC No.</label>
+                            <input type="text" name="NIC" value="" id="DriverCNIC" disabled />
+                        </div>
+
+                    </div>
+                </div>
+                @*<input type="submit" name="name" value="Load" />*@
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card">
+                <h2 class="title"><a href="@Url.Action("Card")">Card</a></h2>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Card Category</label>
+                            <select>
+                                <option value="value">--Select --</option>
+                                <option value="value">Dispatch</option>
+                                <option value="value">Green Card</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>RF Card No.</label>
+                            <input type="text" name="rfCardNo" id="rfCardNo" value="" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <h2 class="title"><a href="">Document</a></h2>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Doc No.</label>
+                            <input type="text" name="docNo" id="docNo" value="" />
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Doc Date</label>
+                            <input type="date" name="docDate" id="docDate" value="" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card">
+                <h2 class="title"><a href="">Party</a></h2>
+                <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Party</label>
+                                <select name="partyId" id="parties">
+                                    <option value="value">--Select--</option>
+                                    @if (TempData["type"] == "DO")
+                                    {
+                                        foreach (var item in (dynamic[])TempData["BoundList"])
+                                        {
+                                            <option value="@(TempData["res"].ToString() == "Inbound" ? item.Supplier_Description : item.Customer_Description)">@(TempData["res"].ToString() == "Inbound" ? item.SupplierTitle : item.CustomerTitle)</option>
+                                        }
+
+                                    }
+                                </select>
+                              
+                            </div>
+                        </div>
+                  
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>PO NO.</label>
+                                <input type="number" name="partyPONo" id="partyPONo" value="" />
+                            </div>
+                        </div>
+                    </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>PO Date</label>
+                            <input type="date" name="partyPODate" id="partyPODate" value="" />
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Party Description</label>
+                            <input type="text" name="partyDescription" id="partyDescription" readonly value="" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <h2 class="title"><a href="">Products</a></h2>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Product</label>
+                            <select id="productList">
+                                <option value="value">--Select--</option>
+                                @if (ViewBag.Checking1 == "OK")
+                                {
+                                    foreach (var item in ViewBag.ProductsList)
+                                    {
+                                        <option value="value">@item</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Description</label>
+                            <input type="text" name="name" value="" id="productDescription" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Physical Quantity.</label>
+                            <input type="number" name="name" value="" id="physicalQuantity" />
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>UOM</label>
+                            <select id="uomList">
+                                <option value="value">--Select--</option>
+                                @if (ViewBag.Checking2 == "OK")
+                                {
+                                    foreach (var item in ViewBag.UOMList)
+                                    {
+                                        <option value="value">@item</option>
+                                    }
+                                }
+                            </select>
+                            <button class="btn btn-info d-none" style="margin-top:7px" onclick="addProducts()">Add</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row d-none">
+                    <div class="col-sm-12">
+                        <table class="table table-striped table-hover justify-content-center table-sm" id="dataTable">
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Decription</th>
+                                    <th>Quantity</th>
+                                    <th>UOM</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td id="t1"></td>
+                                    <td id="t2"></td>
+                                    <td id="t3"></td>
+                                    <td id="t4"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card">
+                <h2 class="title"><a href="">Shipment Document</a></h2>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Shipment Document No.</label>
+                            <select name="shipmentDocumentNo" id="shipmentDocumentNo">
+                                <option value="value"> --Select--</option>
+                                @if (ViewBag.Checking4 == "OK")
+                                {
+                                    foreach (var item in ViewBag.ShipmentDocNoList)
+                                    {
+                                        <option value="@item">@item</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Shipment Document Date</label>
+                            <input type="date" name="shipmentDocumentDate" id="shipmentDocumentDate" value="" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Shipment Remarks 1.</label>
+                            <input type="text" name="shipmentRemarks1" id="shipmentRemarks1" value="" />
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Shipment Remarks 2.</label>
+                            <input type="text" name="shipmentRemarks2" id="shipmentRemarks2" value="" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <h2 class="title"><a href="">Device Location</a></h2>
+                <div class="myclass">       
+                    <table class="table table-striped table-sm table-hover">
+                    <thead>
+                        <tr>
+                            <th>OrderID</th>
+                            <th>DeviceName</th>
+                            <th>Activity Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if(TempData["DeviceLocation"] != null){
+                         
+                            foreach (var item in (dynamic[])TempData["DeviceLocation"])
+                            {
+                                <tr>
+                                    <td>@item.OrderID</td>
+                                    <td>@item.DeviceName</td>
+                                    <td>@item.ActivityDate.ToShortDateString()</td>
+                                </tr>
+
+                            }
+                        }
+                    </tbody>
+                </table>
+                </div>
+                </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-9"></div>
+        <div class="col-sm-3">
+            <button type="button" class="btn btn-info" onclick="AddVehicles()">Add</button>
+            <a href="@Url.Action("CreateQRCode" , "VehicleManagement")" class="btn btn-info">Genrate Slip</a>
+            <input type="button" class="btn btn-info" value="Cancel" />
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+    $('#parties').on("change", function () {
+        var description = $('#parties option:selected').val();
+        $('#partyDescription').val(description);
+    });
+    function fetchingDatabasedonVehicleNo() {
+        var vehicleNo = $('#vehicleNumber').val().trim();
+        $.ajax({
+            type: 'POST',
+            dataType: 'JSON',
+            url: 'VehicleDetails',
+            data: {
+                  vechicleNo: vehicleNo
+            },
+            success: (response) => {
+                if (vehicleNo != "") {
+                    console.log("response -> ", response)
+                    var optionsVehicleTitle = '';
+                    var optionsVehicleNature = '';
+                    var optionsDriver = '';
+                    var optionsTansporter = '';
+
+                    for (var i = 0; i < response.length; i++) {
+
+                        //optionsVehicleTitle += '<option value="' + response[i].VehicleTitle + '">' + response[i].VehicleTitle + '</option>';
+                        //optionsVehicleNature += '<option value="' + response[i].VehicleNature + '">' + response[i].VehicleNature + '</option>';
+                        //optionsDriver += '<option value="' + response[i].DriverTitle + '">' + response[i].DriverTitle + '</option>';
+                        //optionsTansporter += '<option value="' + response[i].TransportTitle + '">' + response[i].TransportTitle + '</option>';
+                        $('#DriverCNIC').val(response[i].NIC);
+                        $('#VehicleTitle').val(response[i].VehicleTitle);
+                        $('#VehicleNature').val(response[i].VehicleNature);
+                        $('#Tansporter').val(response[i].TransportTitle);
+                        $('#Driver').val(response[i].DriverTitle);
+                    }
+                    //$('#VehicleTitle').append(optionsVehicleTitle);
+                    //$('#VehicleNature').append(optionsVehicleNature);
+                    //$('#DriverList').append(optionsDriver);
+                    //$('#TansporterList').append(optionsTansporter);
+
+
+                }
+            }
+        });
+                        }
+
+                        function AddVehicles() {
+                            var tranId = $('#tranId').val();
+                            var transactionDate = $('#transacationDate').val();
+                            var trantype = $('#tranType :selected').text();
+                            var vehicleEntryMode = $('#vehicleEntryMode :selected').text();
+                            var entryStatus = $('#entryStatus :selected').text();
+                            var vechicleNum = $('.vehicleN').val();
+                            var NIC = $('#DriverCNIC').val();
+                            var rfCardNo = $('#rfCardNo').val();
+                            var partyType = $('#parties :selected').text();
+                            var partyDescription = $('#partyDescription').val();
+                            var partyPONo = $('#partyPONo').val();
+                            var partyPODate = $('#partyPODate').val();
+                            var docNo = $('#docNo').val();
+                            var docDate = $('#docDate').val();
+                            var shipmentDocumentNo = $('#shipmentDocumentNo').val();
+                            var shipmentDocumentDate = $('#shipmentDocumentDate').val();
+                            var shipmentRemarks1 = $('#shipmentRemarks1').val();
+                            var shipmentRemarks2 = $('#shipmentRemarks2').val();
+
+
+        $.ajax({
+
+            type: 'POST',
+            url: 'MainGateIn',
+            data: {
+                tranId: tranId,
+                transacationDate: transactionDate,
+                tranType: trantype,
+                vehicleEntryMode: vehicleEntryMode,
+                entryStatus: entryStatus,
+                vehicleNatureId: 1,
+                vehicleId: 1,
+                vechicleNo: vechicleNum,
+                transporterId: 1,
+                DriverId: 1,
+                NIC: NIC,
+                rfCardNo: rfCardNo,
+                partyType: partyType,
+                partyDescription: partyDescription,
+                partyPONo: partyPONo,
+                partyPODate: partyPODate,
+                docNo: docNo,
+                docDate: docDate,
+                shipmentDocumentNo: shipmentDocumentNo,
+                shipmentDocumentDate: shipmentDocumentDate,
+                shipmentRemarks1: shipmentRemarks1,
+                shipmentRemarks2: shipmentRemarks2,
+            },
+            success: (response) => {
+                console.log(response)
+            },
+            error: (err) => {
+                console.log("Error Message: ", err)
+            }
+
+        });
+                        }
+
+                        function addProducts() {
+
+                            let products = [];
+
+                            var productList = $("#productList :selected").text();
+                            var productDescription = $("#productDescription").val();
+                            var physicalQuantity = $("#physicalQuantity").val();
+                            var uomList = $("#uomList :selected").text();
+
+                            products.push({
+                                pL: productList,
+            pD: productDescription,
+            pQ: physicalQuantity,
+            uM: uomList
+                            });
+                            console.log(products)
+                            for (var i = 0; i <= products.length; i++) {
+            $('#t1').append(products[i].pL)
+            $('#t2').append(products[i].pD)
+            $('#t3').append(products[i].pQ)
+            $('#t4').append(products[i].uM)
+        }
+
+                        }
+</script>

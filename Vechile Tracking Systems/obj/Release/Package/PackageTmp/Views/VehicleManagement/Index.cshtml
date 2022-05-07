@@ -1,0 +1,275 @@
+﻿
+<style>
+    h1 {
+        font-family: 'Lucida Sans';
+        font: bold;
+        color: #908c8c;
+        font: 900
+    }
+
+    #image {
+        height: 80px;
+        width: 100px;
+    }
+</style>
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+
+        <div class="logo mr-auto"><img src="~/assets/img/Dalda-1.png" class="img-fluid" id="image"></div>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+        <nav class="nav-menu d-none d-lg-block">
+            <ul>
+                <li><a href="#hero">Vechile Management</a></li>
+                <li><a href="#brands">Brands</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="@Url.Action("Logout" , "Login")" class="glyphicon glyphicon-lock"> Logout</a></li>
+            </ul>
+        </nav><!-- .nav-menu -->
+
+    </div>
+</header><!-- End Header -->
+
+
+<main id="main">
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex align-items-center">   
+        <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
+            <div class="row justify-content-center">
+                <h1 class="text-center">Welcome to Warehouse Management Systems.</h1>
+                <div class="col-sm-12">
+                    <h2><img src="~/assets/img/Desktop--W1920xH690.jpg" class="img-fluid" alt=""></h2>
+                </div>
+            </div>
+            <div class="row icon-boxes">
+                <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="icon-box">
+                        <div class="icon"><i class="ri-stack-line"></i></div>
+                        <h4 class="title"><a href="@Url.Action("Delivery","VehicleManagement")">Vehicle Main Gate-IN/OUT</a></h4>
+                        <p class="description">
+                            The efficient and effective control of overloading in the EAC Partner States requires the
+                            adoption of a harmonized approach to a variety of factors related to the operation and
+                            management of weighbridges. These factors include:
+                            Personnel involved in overload control operations and
+                            Weighbridge verification and calibration.
+                        </p>
+
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="icon-box">
+                        <div class="icon"><i class="ri-palette-line"></i></div>
+                        <h4 class="title"><a href="@Url.Action("Loading", "VehicleManagement")">Vehicle Loading/UnLoading</a></h4>
+                        <p class="description">High-performance weighbridges to meet your weighing needs! Free Quote! Reduce maintenance cost and increase productivity - with reliable vehicle scales. accurate and reliable. 10 year PDX warranty. high-performance scales. leading technology.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="icon-box">
+                        <div class="icon"><i class="ri-command-line"></i></div>
+                        <h4 class="title"><a href="@Url.Action("Weighbrige","VehicleManagement")">Vehicle Weigh Bridge</a></h4>
+                        <p class="description">
+                            End-and-end measurement is used when it
+                            is not possible to determine the mass of a
+                            vehicle by direct measurement because the
+                            entire vehicle does not fit onto the
+                            platform/s. As a result two measurements
+                            have to be determined, one for the front and
+                            the other for the rear of the vehicle.
+                        </p>
+                    </div>
+                </div>
+
+                 <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="icon-box">
+                        <div class="icon"><i class="ri-fingerprint-line"></i></div>
+                        <h4 class="title"><a href="@Url.Action("DataEntry", "VehicleManagement")">New Vehicle Entry</a></h4>
+                        <p class="description">Reporting Information means the Acquired Company Financial Statements and information regarding the Acquired Company Entities necessary for Buyer.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section><!-- End Hero -->
+    <!-- ======= Testimonials Section ======= -->
+    <section id="brands" class="testimonials">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-title">
+                <h2>Our Brands</h2>
+            </div>
+
+            <div class="owl-carousel testimonials-carousel">
+
+                <div class="testimonial-item">
+                    <p>
+                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                        Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                    </p>
+                    <img src="~/assets/img/brands/brand1.png" class="testimonial-img" alt="">
+                    <h3>Dalda</h3>
+                </div>
+
+                <div class="testimonial-item">
+                    <p>
+                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                        Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                    </p>
+                    <img src="~/assets/img/brands/brand2.png" class="testimonial-img" alt="">
+                    <h3>Dalda</h3>
+                </div>
+
+                <div class="testimonial-item">
+                    <p>
+                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                        Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                    </p>
+                    <img src="~/assets/img/brands/brand3.png" class="testimonial-img" alt="">
+                    <h3>Dalda</h3>
+                </div>
+
+                <div class="testimonial-item">
+                    <p>
+                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                        Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
+                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                    </p>
+                    <img src="~/assets/img/brands/brand4.png" class="testimonial-img" alt="">
+                    <h3>Dalda</h3>
+                </div>
+
+                <div class="testimonial-item">
+                    <p>
+                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                        Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
+                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                    </p>
+                    <img src="~/assets/img/brands/brand5.png" class="testimonial-img" alt="">
+                    <h3>Manpasand</h3>
+                </div>
+
+                <div class="testimonial-item">
+                    <p>
+                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                        Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
+                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                    </p>
+                    <img src="~/assets/img/brands/brand6.png" class="testimonial-img" alt="">
+                    <h3>Manpasand</h3>
+                </div>
+
+                <div class="testimonial-item">
+                    <p>
+                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                        Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
+                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                    </p>
+                    <img src="~/assets/img/brands/brand7.png" class="testimonial-img" alt="">
+                    <h3>Manpasand</h3>
+                </div>
+
+                <div class="testimonial-item">
+                    <p>
+                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                        Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
+                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                    </p>
+                    <img src="~/assets/img/brands/chupshup.png" class="testimonial-img" alt="">
+                    <h3>Dalda CupShop</h3>
+                </div>
+
+                <div class="testimonial-item">
+                    <p>
+                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                        Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
+                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                    </p>
+                    <img src="~/assets/img/brands/knockout.png" class="testimonial-img" alt="">
+                    <h3>Knockout</h3>
+                </div>
+
+                <div class="testimonial-item">
+                    <p>
+                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                        Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
+                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                    </p>
+                    <img src="~/assets/img/brands/snack.png" class="testimonial-img" alt="">
+                    <h3>Knockout</h3>
+                </div>
+                <div class="testimonial-item">
+                    <p>
+                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                        Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
+                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                    </p>
+                    <img src="~/assets/img/brands/bash.png" class="testimonial-img" alt="">
+                    <h3>Bash</h3>
+                </div>
+                <div class="testimonial-item">
+                    <p>
+                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                        Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
+                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                    </p>
+                    <img src="~/assets/img/brands/bash snack.png" class="testimonial-img" alt="">
+                    <h3>Bash</h3>
+                </div>
+            </div>
+
+        </div>
+    </section><!-- End Testimonials Section -->
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+        <div class="container" data-aos="fade-up">
+            <div class="section-title">
+                <h1>Location</h1>
+            </div>
+            <div>
+                <iframe style="border:0; width: 100%; height: 270px;" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDIGKBQxwEJI_J1UPQ-A-t2RctVMsCIiaE&q=Dalda+Foods+Ltd" frameborder="0" allowfullscreen></iframe>
+            </div>
+
+            <div class="row mt-5">
+
+                <div class="col-lg-4">
+                    <div class="info">
+                        <div class="address">
+                            <i class="icofont-google-map"></i>
+                            <h4>Location:</h4>
+                            <p>F-33 Hub River Rd, Sher Shah Village Sindh Industrial Trading Estate, Karachi, Karachi City, Sindh 75700, Pakistan</p>
+                        </div>
+
+                        <div class="email">
+                            <i class="icofont-envelope"></i>
+                            <h4>Email:</h4>
+                            <p>info@daldafoods.com</p>
+
+                        </div>
+
+                        <div class="phone">
+                            <i class="icofont-phone"></i>
+                            <h4>Call:</h4>
+                            <p>+922138636933</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+    </section><!-- End Contact Section -->
+
+</main><!-- End #main -->
+
+
+<a href="#" class="back-to-top"><i class="ri-arrow-up-line"></i></a>
+<div id="preloader"></div>
